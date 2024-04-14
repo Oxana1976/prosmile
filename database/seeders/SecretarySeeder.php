@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Secretary;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\UserRole;
 use App\Models\User;
 use App\Models\Role;
 
-class RoleUserSeeder extends Seeder
+class SecretarySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,63 +17,40 @@ class RoleUserSeeder extends Seeder
     public function run(): void
     {
         //
+        
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('role_user')->truncate();
+        Secretary::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
-        $userRoles=[
-            [ 
-            'user_firstname'=>'Bob',
-            'user_lastname'=>'Sull',
-            'role'=>'admin',
-
-            ],
-            [ 
-            'user_firstname'=>'Anna',
-            'user_lastname'=>'Silva',
-            'role'=>'member',
-    
-            ],
+        $secrataries=[
+           
+          
             [ 
             'user_firstname'=>'Oxana',
             'user_lastname'=>'Eremeeva',
-            'role'=>'admin',
+            //'role'=>'admin',
+            'gender'=>'F',
         
             ],
-            [ 
-            'user_firstname'=>'John',
-            'user_lastname'=>'Smit',
-            'role'=>'member',
-            
-             ],
-            [ 
-            'user_firstname'=>'Maxime',
-            'user_lastname'=>'Santos',
-            'role'=>'affiliate',
-            
-            ],
-            [ 
-            'user_firstname'=>'Nina',
-            'user_lastname'=>'Colys',
-            'role'=>'affiliate',
-                
-            ],
+         
             [ 
             'user_firstname'=>'Katya',
             'user_lastname'=>'Dupont',
-            'role'=>'admin',
+            //'role'=>'admin',
+            'gender'=>'F',
                     
             ],
             [ 
             'user_firstname'=>'Elodie',
             'user_lastname'=>'Mulon',
-            'role'=>'admin',
+            //'role'=>'admin',
+            'gender'=>'F',
                         
             ],
 
         ];
 
             //Prepare the data
-            foreach ($userRoles as &$data) {
+            foreach ($secrataries as &$data) {
                 //Search the artist for a given artist's firstname and lastname
                 $user = User::where([
                     ['firstname','=',$data['user_firstname'] ],
@@ -81,18 +58,18 @@ class RoleUserSeeder extends Seeder
                 ])->first();
     
                 //Search the type for a given type
-                $role = Role::firstWhere('role',$data['role']);
+                //$role = Role::firstWhere('role',$data['role']);
                 
                 unset($data['user_firstname']);
                 unset($data['user_lastname']);
-                unset($data['role']);
+               // unset($data['role']);
     
                 $data['user_id'] = $user->id;
-                $data['role_id'] = $role->id;
+                //$data['role_id'] = $role->id;
             }
             unset($data);
     
             //Insert data in the table
-            DB::table('role_user')->insert($userRoles);
+            DB::table('secretaries')->insert($secrataries);
     }
 }

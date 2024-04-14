@@ -81,6 +81,27 @@ class UserSeeder extends Seeder
                 'created_at'=>'',
                 'phone_number'=>321654,
             ],
+            
+            [
+                'login'=>'katya',
+                'firstname'=>'Katya',
+                'lastname'=>'Dupont',
+                'email'=>'katya@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>852963,
+            ],
+            [
+                'login'=>'elodie',
+                'firstname'=>'Elodie',
+                'lastname'=>'Mulon',
+                'email'=>'elodie@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>963741,
+            ],
            
 
         ];
