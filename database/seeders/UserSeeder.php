@@ -17,6 +17,9 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        User::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $users = [
             [
                 'login'=>'bob',
