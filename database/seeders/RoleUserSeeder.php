@@ -33,6 +33,24 @@ class RoleUserSeeder extends Seeder
             'role'=>'member',
     
             ],
+
+            [ 
+            'user_firstname'=>'Patricia',
+            'user_lastname'=>'Merlin',
+            'role'=>'member',
+            ],
+            [ 
+            'user_firstname'=>'Pierre',
+            'user_lastname'=>'Collet',
+            'role'=>'member',
+            ],
+            [ 
+            'user_firstname'=>'Marine',
+            'user_lastname'=>'Duval',
+            'role'=>'member',
+        
+            ],
+
             [ 
             'user_firstname'=>'Oxana',
             'user_lastname'=>'Eremeeva',
