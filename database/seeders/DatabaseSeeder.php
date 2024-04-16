@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 //use App\Models\Secretary;
+
+use App\Models\Specialty;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,6 +28,8 @@ class DatabaseSeeder extends Seeder
             RoleUserSeeder::class,
             SecretarySeeder::class,
             DoctorSeeder::class,
+            SpecialtySeeder::class,
+            DoctorSpecialtySeeder::class,
         ]);
     }
 }
