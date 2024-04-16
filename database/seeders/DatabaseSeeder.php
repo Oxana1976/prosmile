@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
             SpecialtySeeder::class,
             DoctorSpecialtySeeder::class,
+            AvailabilitySeeder::class,
         ]);
     }
 }
