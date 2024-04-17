@@ -73,8 +73,59 @@ class RoleUserSeeder extends Seeder
             'user_firstname'=>'Nina',
             'user_lastname'=>'Colys',
             'role'=>'affiliate',
-                
+
             ],
+            [
+            'user_firstname' => 'Lucas',
+            'user_lastname' => 'Martin',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Emilie',
+            'user_lastname' => 'Roux',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Chloé',
+            'user_lastname' => 'Bernard',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Alexandre',
+            'user_lastname' => 'Petit',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Julie',
+            'user_lastname' => 'Robert',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Kevin',
+            'user_lastname' => 'Richard',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Sophie',
+            'user_lastname' => 'Dubois',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Étienne',
+            'user_lastname' => 'Moreau',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Léa',
+            'user_lastname' => 'Simon',
+            'role' => 'affiliate',
+            ],
+            [
+            'user_firstname' => 'Hugo',
+            'user_lastname' => 'Laurent',
+            'role' => 'affiliate',
+            ],
+            
             [ 
             'user_firstname'=>'Katya',
             'user_lastname'=>'Dupont',

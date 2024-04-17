@@ -133,6 +133,115 @@ class UserSeeder extends Seeder
                 'created_at'=>'',
                 'phone_number'=>963741,
             ],
+
+            [
+                'login'=>'lucas',
+                'firstname'=>'Lucas',
+                'lastname'=>'Martin',
+                'email'=>'lucas@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>111111,
+            ],
+            [
+                'login'=>'emilie',
+                'firstname'=>'Emilie',
+                'lastname'=>'Roux',
+                'email'=>'emilie@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>222222,
+            ],
+            [
+                'login'=>'chloé',
+                'firstname'=>'Chloé',
+                'lastname'=>'Bernard',
+                'email'=>'chloe@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>333333,
+            ],
+            [
+                'login'=>'alexandre',
+                'firstname'=>'Alexandre',
+                'lastname'=>'Petit',
+                'email'=>'alexandre@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>444444,
+
+            ],
+            [
+                'login'=>'julie',
+                'firstname'=>'Julie',
+                'lastname'=>'Robert',
+                'email'=>'julie@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>555555,
+                
+            ],
+            [
+                'login'=>'kevin',
+                'firstname'=>'Kevin',
+                'lastname'=>'Richard',
+                'email'=>'kevin@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>666666,
+                
+            ],
+            [
+                'login'=>'sophie',
+                'firstname'=>'Sophie',
+                'lastname'=>'Dubois',
+                'email'=>'sophie@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>777777,
+                
+            ],
+            [
+                'login'=>'étienne',
+                'firstname'=>'Étienne',
+                'lastname'=>'Moreau',
+                'email'=>'etienne@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>888888,
+                
+            ],
+            [
+                'login'=>'léa',
+                'firstname'=>'Léa',
+                'lastname'=>'Simon',
+                'email'=>'léa@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>999999,
+                
+            ],
+            [
+                'login'=>'hugo',
+                'firstname'=>'Hugo',
+                'lastname'=>'Laurent',
+                'email'=>'hugo@hotmail.com',
+                'password'=>'12345678',
+                'language'=>'fr',
+                'created_at'=>'',
+                'phone_number'=>898989,
+                
+            ],
+            
            
 
         ];
