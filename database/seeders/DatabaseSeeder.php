@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             AvailabilitySeeder::class,
             PatientSeeder::class,
             AppointmentSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
