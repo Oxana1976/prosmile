@@ -51,7 +51,7 @@ class SecretarySeeder extends Seeder
 
             //Prepare the data
             foreach ($secrataries as &$data) {
-                //Search the artist for a given artist's firstname and lastname
+                //Search the user for a given secretaries firstname and lastname
                 $user = User::where([
                     ['firstname','=',$data['user_firstname'] ],
                     ['lastname','=',$data['user_lastname'] ]

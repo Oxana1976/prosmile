@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             PatientSeeder::class,
             AppointmentSeeder::class,
             CommentSeeder::class,
+            PaymentSeeder::class,
         ]);
     }
 }
