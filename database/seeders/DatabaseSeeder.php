@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             AppointmentSeeder::class,
             CommentSeeder::class,
             PaymentSeeder::class,
+            NotificationSeeder::class,
         ]);
     }
 }
