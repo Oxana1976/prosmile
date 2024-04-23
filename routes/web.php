@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DoctorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor.index');
+Route::get('/doctors/filter', [DoctorController::class, 'filter'])->name('doctors.filter');
+Route::get('/doctor/{id}', [DoctorController::class, 'show'])
+		->where('id', '[0-9]+')->name('doctor.show');

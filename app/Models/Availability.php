@@ -16,6 +16,7 @@ class Availability extends Model
         'end_time',
                
     ];
+    protected $dates = ['day'];
     protected $table = 'availabilities';
 
     public $timestamps = false;
