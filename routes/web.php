@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AvailabilityController;
+use App\Models\Availability;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,8 +34,11 @@ Route::put('/doctor/{id}', [DoctorController::class, 'update'])
 Route::get('/doctor/create', [DoctorController::class, 'create'])->name('doctor.create');
 Route::post('/doctor', [DoctorController::class, 'store'])->name('doctor.store');
 
- 
-      
+Route::get('/availability', [AvailabilityController::class, 'index'])->name('availability.index');
+Route::get('/availability/create', [AvailabilityController::class, 'create'])->name('availability.create');
+Route::post('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
+Route::get('/availability/{availability}/edit', [AvailabilityController::class, 'edit'])->name('availability.edit');     
+Route::put('/availability/{availability}', [AvailabilityController::class, 'update'])->name('availability.update');
+Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.delete');      
+Route::post('/availability/{availability}/confirm', [AvailabilityController::class, 'confirm'])->name('availability.confirm'); 
 
-       
-        

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Availability;
+use App\Models\Doctor;
 
 class AvailabilityController extends Controller
 {
@@ -13,6 +14,9 @@ class AvailabilityController extends Controller
     public function index()
     {
         //
+        $doctors = Doctor::with(['user', 'availabilities'])->get();
+        return view('availability.index', compact('doctors'));
+       
     }
 
     /**
@@ -21,7 +25,7 @@ class AvailabilityController extends Controller
     public function create()
     {
         //
-        return view('doctor.show');
+        return view('availability.create');
     }
 
     /**
@@ -33,19 +37,22 @@ class AvailabilityController extends Controller
 
         $request->validate([
             'doctor_id' => 'required|exists:doctors,id',
-            'day' => 'required|date',
+            'day' => 'required',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i|after:start_time',
         ]);
 
-        $availability = new Availability($request->all());
+        $availability = new Availability([
+            'doctor_id' => $request->doctor_id,
+            'day' => $request->day,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+        ]);
+
         $availability->save();
 
-        return redirect()->back()->with('success', 'Disponibilité ajoutée avec succès.');
-        // Créer une nouvelle disponibilité avec les données validées
-       
-        // Rediriger vers une page de confirmation ou une autre page
-        //return redirect()->route('doctor.show', $request->doctor_id)->with('success', 'Disponibilité ajoutée avec succès.');
+        return redirect()->route('availability.index')->with('success', 'Disponibilité ajoutée avec succès.');
+        
     }
 
     /**
@@ -62,38 +69,46 @@ class AvailabilityController extends Controller
     public function edit(string $id)
     {
         //
-        // $availability = Availability::findOrFail($id);
-         return view('doctor.show');
+        $availability = Availability::findOrFail($id);
+        return view('availability.edit', compact('availability'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Availability $availability)
+    public function update(Request $request, $id)
     {
         //
         $request->validate([
-            'day' => 'required|date',
+            'day' => 'required',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i|after:start_time',
         ]);
 
+        $availability = Availability::findOrFail($id);
         $availability->update($request->all());
 
-        return redirect()->back()->with('success', 'Disponibilité mise à jour avec succès.');
-
-
-        //return redirect()->route('doctor.show', $request->doctor_id)->with('success', 'Disponibilité mise à jour avec succès.');
+        return redirect()->route('availability.index')->with('success', 'Disponibilité mise à jour avec succès.');
     }
+      
+
+
+      
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Availability $availability)
+    public function destroy($id)
     {
         //
+        $availability = Availability::findOrFail($id);
         $availability->delete();
 
-        return redirect()->back()->with('success', 'Disponibilité supprimée avec succès.');
+        return redirect()->route('availability.index')->with('success', 'Disponibilité supprimée avec succès.');
     }
+       
+    
+
+
 }
