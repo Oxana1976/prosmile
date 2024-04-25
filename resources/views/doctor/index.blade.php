@@ -98,7 +98,9 @@
                 </table>
             </div>
     </div>
-    
+    <ul>
+        <li><a href="{{ route('doctor.create') }}">Ajouter</a></li>    
+    </ul>
 </body>
 </html>
 

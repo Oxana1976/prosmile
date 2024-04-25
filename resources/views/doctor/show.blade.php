@@ -15,13 +15,38 @@
     </ul>
 
     <h3>Disponibilités</h3>
-    <ul>
-        @forelse ($doctor->formattedAvailabilities() as $availability)
-            <li>Date: {{ $availability['day'] }}, de {{ $availability['start'] }} à {{ $availability['end'] }}</li>
-        @empty
-            <li>Aucune disponibilité trouvée.</li>
-        @endforelse
-    </ul>
+    @php
+        $availabilities = $doctor->formattedAvailabilities();
+        $daysGrouped = collect($availabilities)->groupBy('day');
+        $maxSlots = max($daysGrouped->map->count()->toArray());
+    @endphp
 
+    @if (empty($availabilities))
+        <p>Aucune disponibilité trouvée.</p>
+    @else
+        <table border="1">
+            <thead>
+                <tr>
+                    @foreach ($daysGrouped as $day => $slots)
+                        <th>{{ $day }}</th>
+                    @endforeach
+                </tr>
+            </thead>
+            <tbody>
+                @for ($i = 0; $i < $maxSlots; $i++)
+                    <tr>
+                        @foreach ($daysGrouped as $slots)
+                            <td>{{ $slots[$i]['start'] ?? '---' }}</td>
+                        @endforeach
+                    </tr>
+                @endfor
+            </tbody>
+        </table>
+    @endif
+    <div><a href="{{ route('doctor.edit' ,$doctor->id) }}">Mettre à jour les info</a></div>
+    
     <nav><a href="{{ route('doctor.index') }}">Retour à l'index</a></nav>
 @endsection
+   
+
+
