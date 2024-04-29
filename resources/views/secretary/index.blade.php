@@ -70,7 +70,9 @@
                         @foreach ($secretaries as $secretary)
                             <tr>
                                 <td>{{ $secretary->user->firstname }}</td>
-                                <td>{{ $secretary->user->lastname }}</td>
+                                <td>
+                                    <a href="{{ route('secretary.edit', $secretary->id) }}">{{ $secretary->user->lastname }}</a>
+                                </td>
                                 <td>{{ $secretary->user->email }}</td>
                                 <td>{{ $secretary->user->phone_number }}</td>
                             </tr>

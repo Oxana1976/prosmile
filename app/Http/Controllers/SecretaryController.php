@@ -6,6 +6,7 @@ use App\Models\Secretary;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class SecretaryController extends Controller
 {
@@ -19,7 +20,7 @@ class SecretaryController extends Controller
         
         return view('secretary.index',[
             'secretaries' => $secretaries,
-            'resource' => 'artistes',
+            'resource' => 'secretaries',
         ]);
     }
 
@@ -97,6 +98,16 @@ class SecretaryController extends Controller
     public function edit(string $id)
     {
         //
+        $secretary = Secretary::find($id);
+         //$doctor->load('user');
+       // $doctor = Doctor::with('availabilities')->findOrFail($id);
+        //$doctor = Doctor::with('specialties')->findOrFail($id);
+        //$specialties = Specialty::all();
+        
+        return view('secretary.edit',[
+            'secretary' => $secretary,
+           
+        ]);
     }
 
     /**
@@ -105,6 +116,24 @@ class SecretaryController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $secretaries = Secretary::all();
+        $request->validate([
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|max:20',
+          
+
+        ]);
+        // Mise à jour du User associé
+        $secretary = Secretary::find($id);
+        $secretary->user->update([
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+        ]);
+        return view('secretary.index', [
+            'secretaries' => $secretaries, 
+           
+        ]);
+        
     }
 
     /**
@@ -113,5 +142,28 @@ class SecretaryController extends Controller
     public function destroy(string $id)
     {
         //
+        // $secretary = Secretary::findOrFail($id);
+        //   // Récupérer l'ID de l'utilisateur associé
+        // $userId = $secretary->user->id;
+        // $secretary->delete();
+        // // Supprimer l'utilisateur associé
+        //  User::destroy($userId);
+
+
+           // Utiliser une transaction pour assurer l'intégrité des données
+    DB::transaction(function () use ($id) {
+        $secretary = Secretary::with('user')->findOrFail($id);  // Charger la secrétaire avec l'utilisateur associé
+        $userId = $secretary->user->id;
+
+        // Supprimer les entrées associées dans la table role_user
+        DB::table('role_user')->where('user_id', $userId)->delete();
+
+        // Supprimer la secrétaire
+        $secretary->delete();
+
+        // Supprimer l'utilisateur associé
+        User::destroy($userId);
+    });
+        return redirect()->route('secretary.index')->with('success', 'Disponibilité supprimée avec succès.');
     }
 }

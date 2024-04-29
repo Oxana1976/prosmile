@@ -47,4 +47,8 @@ Route::delete('/availability/{availability}', [AvailabilityController::class, 'd
 Route::get('/secretary', [SecretaryController::class, 'index'])->name('secretary.index');
 Route::get('/secretary/create', [SecretaryController::class, 'create'])->name('secretary.create');
 Route::post('/secretary', [SecretaryController::class, 'store'])->name('secretary.store');
-
+Route::get('/secretary/edit/{id}', [SecretaryController::class, 'edit'])
+		->where('id', '[0-9]+')->name('secretary.edit');
+Route::put('/secretary/{id}', [SecretaryController::class, 'update'])
+		->where('id', '[0-9]+')->name('secretary.update');
+Route::delete('/secretary/{secretary}', [SecretaryController::class, 'destroy'])->name('secretary.delete'); 
