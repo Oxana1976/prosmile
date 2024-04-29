@@ -7,6 +7,7 @@ use App\Http\Controllers\AvailabilityController;
 use App\Models\Availability;
 use App\Models\Secretary;
 use App\Http\Controllers\SecretaryController;
+use App\Http\Controllers\SpecialtyController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,3 +53,8 @@ Route::get('/secretary/edit/{id}', [SecretaryController::class, 'edit'])
 Route::put('/secretary/{id}', [SecretaryController::class, 'update'])
 		->where('id', '[0-9]+')->name('secretary.update');
 Route::delete('/secretary/{secretary}', [SecretaryController::class, 'destroy'])->name('secretary.delete'); 
+
+Route::get('/specialty', [SpecialtyController::class, 'index'])->name('specialty.index');
+Route::get('/specialty/create', [SpecialtyController::class, 'create'])->name('specialty.create');
+Route::post('/specialty', [SpecialtyController::class, 'store'])->name('specialty.store');
+Route::delete('/specialty/{specialty}', [SpecialtyController::class, 'destroy'])->name('specialty.delete');
