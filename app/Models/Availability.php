@@ -25,4 +25,15 @@ class Availability extends Model
 {
     return $this->belongsTo(Doctor::class);
 }
+
+public function getStartTimeAttribute($value)
+{
+    // Convertit la valeur en objet DateTime et formate-la selon 'H:i'
+    return $this->asDateTime($value)->format('H:i');
+}
+
+public function getEndTimeAttribute($value)
+{
+    return $this->asDateTime($value)->format('H:i');
+}
 }

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AvailabilityController;
 use App\Models\Availability;
+use App\Models\Secretary;
+use App\Http\Controllers\SecretaryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,11 +36,15 @@ Route::put('/doctor/{id}', [DoctorController::class, 'update'])
 Route::get('/doctor/create', [DoctorController::class, 'create'])->name('doctor.create');
 Route::post('/doctor', [DoctorController::class, 'store'])->name('doctor.store');
 
+
 Route::get('/availability', [AvailabilityController::class, 'index'])->name('availability.index');
 Route::get('/availability/create', [AvailabilityController::class, 'create'])->name('availability.create');
 Route::post('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
 Route::get('/availability/{availability}/edit', [AvailabilityController::class, 'edit'])->name('availability.edit');     
 Route::put('/availability/{availability}', [AvailabilityController::class, 'update'])->name('availability.update');
-Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.delete');      
-Route::post('/availability/{availability}/confirm', [AvailabilityController::class, 'confirm'])->name('availability.confirm'); 
+Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.delete');  
+
+Route::get('/secretary', [SecretaryController::class, 'index'])->name('secretary.index');
+Route::get('/secretary/create', [SecretaryController::class, 'create'])->name('secretary.create');
+Route::post('/secretary', [SecretaryController::class, 'store'])->name('secretary.store');
 

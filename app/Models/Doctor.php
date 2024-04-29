@@ -47,8 +47,8 @@ class Doctor extends Model
     {
         $formattedAvailabilities = [];
         foreach ($this->availabilities as $availability) {
-            $startTime = Carbon::createFromFormat('H:i:s', $availability->start_time);
-            $endTime = Carbon::createFromFormat('H:i:s', $availability->end_time);
+            $startTime = Carbon::createFromFormat('H:i', $availability->start_time);
+            $endTime = Carbon::createFromFormat('H:i', $availability->end_time);
     
             while ($startTime < $endTime) {
                 $formattedAvailabilities[] = [

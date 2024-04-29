@@ -56,7 +56,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_user');
     }
 
-    public function secretaire(): HasOne
+    public function secretary(): HasOne
     {
         return $this->hasOne(Secretary::class);
     }

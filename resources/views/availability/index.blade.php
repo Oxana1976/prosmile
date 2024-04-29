@@ -19,11 +19,20 @@
         <tbody>
             @foreach ($doctor->availabilities as $availability)
                 <tr>
-                    <td>{{ $availability->day }}</td>
-                    <td>{{ $availability->start_time }}</td>
-                    <td>{{ $availability->end_time }}</td>
+      
+                                
+       
+                    <td contenteditable="true" >{{ $availability->day }}</td>
+                    <td contenteditable="true" type="time">{{ $availability->start_time }}</td>
+                    <td contenteditable="true" type="time">{{ $availability->end_time }}</td>
                     <td>
-                        <a href="{{ route('availability.edit', $availability->id) }}">Modifier</a>
+                    <form action="{{ route('availability.update', $availability->id) }}" method="post"style="display: inline;">
+                    @csrf
+        @method('PUT')
+     
+        <button type="submit">Modifier</button>
+                    </form>
+                        
                         
                        
 

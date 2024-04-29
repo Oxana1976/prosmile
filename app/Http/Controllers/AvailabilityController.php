@@ -69,8 +69,14 @@ class AvailabilityController extends Controller
     public function edit(string $id)
     {
         //
-        $availability = Availability::findOrFail($id);
-        return view('availability.edit', compact('availability'));
+        $availabilities = Availability::findOrFail($id);
+        $doctors = Doctor::all(); // Récupérer la liste complète des médecins
+
+       // return view('availability.index', compact('availability', 'doctors'));
+       return view('doctor.edit',[
+        'doctors' => $doctors,
+        'availabilities' => $availabilities,
+    ]);
         
     }
 
