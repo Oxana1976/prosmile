@@ -8,6 +8,7 @@ use App\Models\Availability;
 use App\Models\Secretary;
 use App\Http\Controllers\SecretaryController;
 use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\PatientController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,3 +59,9 @@ Route::get('/specialty', [SpecialtyController::class, 'index'])->name('specialty
 Route::get('/specialty/create', [SpecialtyController::class, 'create'])->name('specialty.create');
 Route::post('/specialty', [SpecialtyController::class, 'store'])->name('specialty.store');
 Route::delete('/specialty/{specialty}', [SpecialtyController::class, 'destroy'])->name('specialty.delete');
+
+Route::get('/patient', [PatientController::class, 'index'])->name('patient.index');
+Route::get('/patient/{id}', [PatientController::class, 'show'])
+		->where('id', '[0-9]+')->name('patient.show');
+Route::get('/patient/appointment/{id}', [PatientController::class, 'show_appointment'])
+		->where('id', '[0-9]+')->name('patient.show_appointment');
