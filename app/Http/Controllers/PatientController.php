@@ -12,14 +12,18 @@ class PatientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $patients = Patient::all();
+        //$patients = Patient::all();
+        $patients = Patient::with('user')
+        ->byBirthdate($request->birthdate)
+        ->get();
         
         return view('patient.index',[
             'patients' => $patients,
             'resource' => 'patients',
+
            
         ]);
     }
@@ -60,7 +64,7 @@ class PatientController extends Controller
         $patient = Patient::with(['user', 'appointments.payments'])->findOrFail($id);
         $appointment = Appointment::find($id);
         $doctor = Doctor::find($id);
-    
+       
        
         return view('patient.show_appointment', [
             'patient' => $patient,

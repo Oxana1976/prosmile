@@ -9,6 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="form-group">
+    <form action="{{ route('patient.index') }}" method="GET">
+        <label for="birthdate">Date de Naissance:</label>
+        <input type="date" id="birthdate" name="birthdate" class="form-control" value="{{ request('birthdate') }}">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+</div>
     <title>Liste des Patients</title>
      
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

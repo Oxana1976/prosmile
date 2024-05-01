@@ -65,3 +65,4 @@ Route::get('/patient/{id}', [PatientController::class, 'show'])
 		->where('id', '[0-9]+')->name('patient.show');
 Route::get('/patient/appointment/{id}', [PatientController::class, 'show_appointment'])
 		->where('id', '[0-9]+')->name('patient.show_appointment');
+Route::get('/patient/filter', [PatientController::class, 'index'])->name('patients.index');

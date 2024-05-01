@@ -43,4 +43,15 @@ class Patient extends Model
     {
         return $this->hasMany(Notification::class);
     }
+
+     // Scope pour filtrer par date de naissance
+    public function scopeByBirthdate($query, $birthdate)
+    {
+         if ($birthdate) {
+             return $query->where('birthdate', '=', $birthdate);
+         }
+ 
+         return $query;
+    }
+  
 }
