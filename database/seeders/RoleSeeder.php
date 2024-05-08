@@ -14,17 +14,25 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        // Role::truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        //    //Define data
+        //    $roles = [
+        //     ['role'=>'admin'],
+        //     ['role'=>'member'],
+        //     ['role'=>'affiliate'],
+        // ];
+        
+        // //Insert data in the table
+        // DB::table('roles')->insert($roles);
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Role::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
-           //Define data
-           $roles = [
-            ['role'=>'admin'],
-            ['role'=>'member'],
-            ['role'=>'affiliate'],
-        ];
-        
-        //Insert data in the table
-        DB::table('roles')->insert($roles);
+
+        foreach (Role::ROLES as $role)
+        {
+            Role::query()->create(['role' => $role]);
+        }
     }
 }

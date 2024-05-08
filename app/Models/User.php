@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
@@ -26,6 +26,8 @@ class User extends Authenticatable
         'email',
         'language',
         'phone_number',
+        'role_id',
+
     ];
 
     /**
@@ -51,9 +53,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function roles(): BelongsToMany
+    // public function roles(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Role::class, 'role_user');
+    // }
+    public function role(): BelongsTo
     {
-        return $this->belongsToMany(Role::class, 'role_user');
+        return $this->belongsTo(Role::class);
     }
 
     public function secretary(): HasOne
