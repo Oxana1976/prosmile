@@ -69,6 +69,7 @@ class DoctorController extends Controller
             'language' => $request->language,
             'login' => $request->login,
             'phone_number' => $request->phone_number,
+            'role_id' => Role::where('role', 'medecin')->value('id'),
         ]);
 
         $user->save();
@@ -94,8 +95,8 @@ class DoctorController extends Controller
        
 
             // Associate default member role to the user
-           $memberRole = Role::where('role', 'member')->first();
-           $user->roles()->attach($memberRole);
+        //    $memberRole = Role::where('role', 'member')->first();
+        //    $user->roles()->attach($memberRole);
 
             // Attach specialties
             $doctor->specialties()->sync($request->input('specialties', [])); 
