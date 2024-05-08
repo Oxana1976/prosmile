@@ -7,12 +7,26 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class SecretaryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+     {
+         //Several roles at once for the hole controller
+        if (! Gate::allows( Role::CHIEF)) {
+             abort(403);
+         }
+ 
+         //or just one role for the hole controller
+         // if (! Gate::allows(Role::MEDIC)) {
+         //     abort(403);
+         // }
+     }
     public function index()
     {
         //
@@ -60,6 +74,7 @@ class SecretaryController extends Controller
             'language' => $request->language,
             'login' => $request->login,
             'phone_number' => $request->phone_number,
+            'role_id' => Role::where('role', 'secrétaire')->value('id'),
         ]);
 
         $user->save();
@@ -77,8 +92,8 @@ class SecretaryController extends Controller
        
 
             // Associate default admin role to the user
-           $adminRole = Role::where('role', 'admin')->first();
-           $user->roles()->attach($adminRole);
+        //    $adminRole = Role::where('role', 'admin')->first();
+        //    $user->roles()->attach($adminRole);
            return redirect()->route('secretary.index')->with('success', 'Secretaire enregistrée avec succès.');
 
           

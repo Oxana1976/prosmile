@@ -46,6 +46,7 @@ Route::get('/availability/{availability}/edit', [AvailabilityController::class, 
 Route::put('/availability/{availability}', [AvailabilityController::class, 'update'])->name('availability.update');
 Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.delete');  
 
+Route::middleware('auth')->group(function () {
 Route::get('/secretary', [SecretaryController::class, 'index'])->name('secretary.index');
 Route::get('/secretary/create', [SecretaryController::class, 'create'])->name('secretary.create');
 Route::post('/secretary', [SecretaryController::class, 'store'])->name('secretary.store');
@@ -54,7 +55,7 @@ Route::get('/secretary/edit/{id}', [SecretaryController::class, 'edit'])
 Route::put('/secretary/{id}', [SecretaryController::class, 'update'])
 		->where('id', '[0-9]+')->name('secretary.update');
 Route::delete('/secretary/{secretary}', [SecretaryController::class, 'destroy'])->name('secretary.delete'); 
-
+});
 Route::get('/specialty', [SpecialtyController::class, 'index'])->name('specialty.index');
 Route::get('/specialty/create', [SpecialtyController::class, 'create'])->name('specialty.create');
 Route::post('/specialty', [SpecialtyController::class, 'store'])->name('specialty.store');
@@ -66,6 +67,6 @@ Route::get('/patient/{id}', [PatientController::class, 'show'])
 Route::get('/patient/appointment/{id}', [PatientController::class, 'show_appointment'])
 		->where('id', '[0-9]+')->name('patient.show_appointment');
 Route::get('/patient/filter', [PatientController::class, 'index'])->name('patients.index');
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
