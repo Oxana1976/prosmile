@@ -17,7 +17,7 @@ class Patient extends Model
         'gender',
         'about',
         'emergency_contact_name', 
-        'emergency_contact_phone ',
+        'emergency_contact_phone',
 
     ];
     protected $table = 'patients';

@@ -93,7 +93,9 @@
                 </table>
             </div>
     </div>
-   
+    <ul>
+        <li><a href="{{ route('patient.create') }}">Inscrire un patient</a></li>    
+    </ul>
 </body>
 </html>
 

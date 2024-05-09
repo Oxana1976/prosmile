@@ -11,14 +11,20 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Gate;
+
 class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+   
     public function index()
     {
         //
+        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         $doctors = Doctor::all();
         $specialties = Specialty::all(); // Récupérer toutes les spécialités
         return view('doctor.index',[
@@ -34,6 +40,9 @@ class DoctorController extends Controller
     public function create()
     {
         //
+        if (! Gate::allows( Role::CHIEF)) {
+            abort(403);
+        }
         $specialties = Specialty::all();
         return view('doctor.create', compact('specialties'));
         
@@ -130,6 +139,9 @@ class DoctorController extends Controller
      */
     public function edit(string $id)
     {
+        if (! Gate::allows( Role::CHIEF)) {
+            abort(403);
+        }
         $doctor = Doctor::find($id);
          //$doctor->load('user');
        // $doctor = Doctor::with('availabilities')->findOrFail($id);
