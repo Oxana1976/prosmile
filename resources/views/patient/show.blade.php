@@ -46,7 +46,8 @@
             </tbody>
         </table>
     @endif
-    <nav><a href="{{ route('patient.index') }}">Retour à l'index</a></nav>
+    <div><a href="{{ route('patient.edit', $patient->id) }}">Mettre à jour les info</a></div>
+    
 @endsection
    
 

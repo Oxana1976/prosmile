@@ -122,7 +122,7 @@ class PatientController extends Controller
     public function show_appointment(string $id)
     {
         
-          $user_id = Auth::id(); 
+        $user_id = Auth::id(); 
         $patient = Patient::where('user_id', $user_id)->first();
         
         if (! Gate::any([Role::MEDIC, Role::PATIENT, ])) {
@@ -149,6 +149,16 @@ class PatientController extends Controller
     public function edit(string $id)
     {
         //
+        $patient = Patient::find($id);
+        //$doctor->load('user');
+      // $doctor = Doctor::with('availabilities')->findOrFail($id);
+       //$doctor = Doctor::with('specialties')->findOrFail($id);
+       //$specialties = Specialty::all();
+       
+       return view('patient.edit',[
+           'patient' => $patient,
+          
+       ]);
     }
 
     /**
@@ -157,6 +167,35 @@ class PatientController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $patients = Patient::all();
+        $request->validate([
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|max:20',
+            'address'=> 'required',
+            'about'=> 'required',
+            'emergency_contact_name' => 'required|string|max:60',
+            'emergency_contact_phone' => 'required|string|max:20'
+          
+
+        ]);
+        // Mise à jour du User associé
+        $patient = Patient::find($id);
+        $patient->user->update([
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+        ]);
+
+        $patient->update([
+            'about' => $request->about,
+            'address' => $request->address,
+            'emergency_contact_name' =>$request->emergency_contact_name,
+            'emergency_contact_phone'=>$request->emergency_contact_phone,
+            
+        ]);
+        return view('patient.show', [
+            'patient' => $patient, 
+            
+        ]);
     }
 
     /**

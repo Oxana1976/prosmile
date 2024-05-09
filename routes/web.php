@@ -73,6 +73,11 @@ Route::get('/patient/appointment/{id}', [PatientController::class, 'show_appoint
 Route::get('/patient/filter', [PatientController::class, 'index'])->name('patients.index');
 Route::get('/patient/create', [PatientController::class, 'create'])->name('patient.create');
 Route::post('/patient', [PatientController::class, 'store'])->name('patient.store');
+Route::get('/patient/edit/{id}', [PatientController::class, 'edit'])
+		->where('id', '[0-9]+')->name('patient.edit');
+Route::put('/patient/{id}', [PatientController::class, 'update'])
+		->where('id', '[0-9]+')->name('patient.update');
+
 
 
 
