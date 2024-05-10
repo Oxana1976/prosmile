@@ -9,6 +9,7 @@ use App\Models\Secretary;
 use App\Http\Controllers\SecretaryController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\AppointmentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -77,6 +78,9 @@ Route::get('/patient/edit/{id}', [PatientController::class, 'edit'])
 		->where('id', '[0-9]+')->name('patient.edit');
 Route::put('/patient/{id}', [PatientController::class, 'update'])
 		->where('id', '[0-9]+')->name('patient.update');
+
+
+Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
 
 
 
