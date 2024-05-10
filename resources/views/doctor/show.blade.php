@@ -36,17 +36,22 @@
                 @for ($i = 0; $i < $maxSlots; $i++)
                     <tr>
                         @foreach ($daysGrouped as $slots)
-                            <td>{{ $slots[$i]['start'] ?? '---' }}</td>
+                            <td>
+                                @if (isset($slots[$i]) && !empty($slots[$i]['start']))
+                                    <a href="{{ route('appointment.create') }}">
+                                        {{ $slots[$i]['start'] }} - {{ $slots[$i]['end'] }}
+                                    </a>
+                                @else
+                                    ---
+                                @endif
+                            </td>
                         @endforeach
                     </tr>
                 @endfor
             </tbody>
         </table>
     @endif
-    <div><a href="{{ route('doctor.edit' ,$doctor->id) }}">Mettre à jour les info</a></div>
+    <div><a href="{{ route('doctor.edit' ,$doctor->id) }}">Mettre à jour les infos</a></div>
     
     <nav><a href="{{ route('doctor.index') }}">Retour à l'index</a></nav>
 @endsection
-   
-
-

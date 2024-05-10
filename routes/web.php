@@ -81,6 +81,8 @@ Route::put('/patient/{id}', [PatientController::class, 'update'])
 
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
+Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
+Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
 
 
