@@ -38,7 +38,7 @@
                         @foreach ($daysGrouped as $slots)
                             <td>
                                 @if (isset($slots[$i]) && !empty($slots[$i]['start']))
-                                    <a href="{{ route('appointment.create') }}">
+                                <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id, 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end']]) }}">
                                         {{ $slots[$i]['start'] }} - {{ $slots[$i]['end'] }}
                                     </a>
                                 @else

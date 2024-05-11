@@ -10,6 +10,7 @@ use App\Http\Controllers\SecretaryController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -81,11 +82,13 @@ Route::put('/patient/{id}', [PatientController::class, 'update'])
 
 
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
-Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
+//Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
+Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', [AppointmentController::class, 'create'])->name('appointment.create');
+//Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', ['AppointmentController::class, 'create'])->name('appointment.create');
 Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
 
-
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

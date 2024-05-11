@@ -31,30 +31,24 @@ class AppointmentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
-    {
-        //
-        // // Récupérer l'ID du médecin à partir des données de la requête
-       $doctorId = $request->doctor_id;
+  
 
-        // //  // Récupérer le médecin associé à l'ID
-        $doctor = Doctor::find($doctorId);
-           
-      
-        // //  // Récupérer l'ID du patient à partir des données de la requête
-        //  $patientId = $request->patient_id;
-        // // Récupérer le patient associé à l'ID
-        // $patient = Patient::findOrFail($patientId);
+public function create($doctor_id,  $start_time, $end_time)
+{
+    // Vous pouvez récupérer les informations supplémentaires du docteur si nécessaire
+    $doctor = Doctor::findOrFail($doctor_id);
+    
+    // Préparation des données pour le formulaire
+    $data = [
+        'doctor' => $doctor,
+        
+        'start_time' => $start_time,
+        'end_time' => $end_time,
+    ];
 
-       
-
-        return view('appointment.create',[
-            'doctor' => $doctor,
-            
-        ]);
-
-    }
-
+    // Afficher le formulaire de création de rendez-vous avec les données pré-remplies
+    return view('appointment.create', $data);
+}
     /**
      * Store a newly created resource in storage.
      */
@@ -96,14 +90,5 @@ class AppointmentController extends Controller
         //
     }
 
-    // public function showConfirmation($doctorId, $date, $time, $patientId)
-    // {
-    //     $doctor = Doctor::findOrFail($doctorId);
-    //     $user = Auth::user(); // Récupérer l'utilisateur connecté
-    //     $patient = Patient::findOrFail($patientId);
-
-    //     // Passer toutes les variables nécessaires à la vue
-    //     return view('confirm-appointment', compact('doctor', 'date', 'time', 'patient'));
-    // }
-
+    
 }
