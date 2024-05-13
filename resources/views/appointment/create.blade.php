@@ -6,17 +6,20 @@
 <h1>Créer un Rendez-vous pour {{ $doctor->user->firstname }} {{ $doctor->user->lastname }}</h1>
 
 
-<form method="POST" action="{{ route('appointment.store') }}">
+<form  action="{{ route('appointment.store') }}" method="post">
     @csrf
-
     <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
-  
+
+    <label for="day">Jour de la réservation:</label>
+    {{ $day }}
+    
+    <input type="hidden" name="day" value="{{ $day }}">
+
     <label for="start_time">Heure de début:</label>
-    <input type="text" id="start_time" name="start_time" value="{{ $start_time }}" readonly>
-    
-    <label for="end_time">Heure de fin:</label>
-    <input type="text" id="end_time" name="end_time" value="{{ $end_time }}" readonly>
-    
+    {{ $start_time }}
+    @dump( $start_time)
+    <input type="hidden" name="start_time" value="{{ $start_time }}">
+
     <button type="submit">Confirmer le rendez-vous</button>
 </form>
 @endsection

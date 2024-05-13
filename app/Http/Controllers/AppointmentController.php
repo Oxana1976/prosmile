@@ -2,93 +2,109 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
-use App\Models\Appointment;
-use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
         $appointments = Appointment::all();
         $doctors = Doctor::all();
         $patients = Patient::all(); // Récupérer toutes les spécialités
-        return view('appointment.index',[
-            'appointments' => $appointments,
-            'resource' => 'appointments',
-            'doctors' => $doctors,
-            
-            'patients' => $patients,
-        ]);
+
+        return view(
+            'appointment.index',
+            [
+                'appointments' => $appointments,
+                'resource' => 'appointments',
+                'doctors' => $doctors,
+
+                'patients' => $patients,
+            ]
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-  
+    public function create(Request $request)
+    {
+        $day = $request->get('day');
+        //dd($day);
+        $start_time = $request->get('start_time');
+        // Vous pouvez récupérer les informations supplémentaires du docteur si nécessaire
+        $doctor = Doctor::findOrFail($request->get('doctor_id'));
 
-public function create($doctor_id,  $start_time, $end_time)
-{
-    // Vous pouvez récupérer les informations supplémentaires du docteur si nécessaire
-    $doctor = Doctor::findOrFail($doctor_id);
-    
-    // Préparation des données pour le formulaire
-    $data = [
-        'doctor' => $doctor,
-        
-        'start_time' => $start_time,
-        'end_time' => $end_time,
-    ];
+        // Afficher le formulaire de création de rendez-vous avec les données pré-remplies
+        return view(
+            'appointment.create',
+            [
+                'doctor' => $doctor,
+                'start_time' => $start_time,
+                'day' => $day,
+            ]
+        );
+    }
 
-    // Afficher le formulaire de création de rendez-vous avec les données pré-remplies
-    return view('appointment.create', $data);
-}
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-        return redirect()->route('appointment.confirmation');
+       // $formattedDay = Carbon::createFromFormat('d/m/Y', $request->get('day'));
+        //TODO enregistrer les réservations ici
+        //dd($request->all(), $formattedDay);
+        // $request->validate(
+        //     [
+        //         'doctor_id' => 'required|exists:doctors,id',
+        //         'day' => 'required|date_format:Y-m-d', // Assurez-vous que le format de date correspond à ce que vous attendez
+        //         'start_time' => 'required|date_format:H:i:s', // Vérifiez également le format de l'heure
+        //     ]
+        // );
+        // // Combinaison de la date et de l'heure pour créer un datetime
+         $dateTime =  Carbon::createFromFormat('d/m/Y', $request->get('day'));
+        // $validatedData['day'] . ' ' . $validatedData['start_time'];
+            
+      
+        $validatedData = $request->validate([
+            'doctor_id' => 'required|exists:doctors,id',
+            
+            'day' => 'required|date_format:d/m/Y', //  format de date correspond à ce que vous attendez
+            'start_time' => 'required|date_format:H:i', // Vérifie également le format de l'heure
+        ]);
+       // $date = Carbon::createFromFormat('d/m/Y H:i', $validatedData['day'] . ' ' . $validatedData['start_time']);
+        //dd($request->all());
+        // Combinaison de la date et de l'heure pour créer un datetime
+        //$dateTime = $validatedData['day'] . ' ' . $validatedData['start_time'];
+
+         // Création du rendez-vous
+            $appointment = new Appointment;
+           // $appointment->doctor_id = $validatedData['doctor_id'];
+            $appointment->doctor_id = $validatedData['doctor_id'];
+            $appointment->patient_id = auth()->user()->patient->id;//l'utilisateur est connecté et qu'il s'agit du patient
+            //dd(auth()->user(), auth()->user()->patient);
+            $appointment->date_time = $dateTime;
+            $appointment->status = 'Planifié'; // Statut initial du rendez-vous
+            $appointment->duration = 30; // Durée fixe
+            $appointment->save();
+
+          
+        
+        return redirect()->route('appointment.index');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
     }
-
-    
 }

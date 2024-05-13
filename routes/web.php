@@ -81,10 +81,17 @@ Route::put('/patient/{id}', [PatientController::class, 'update'])
 		->where('id', '[0-9]+')->name('patient.update');
 
 
+// Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
+// //Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
+// Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', [AppointmentController::class, 'create'])->name('appointment.create');
+// //Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', ['AppointmentController::class, 'create'])->name('appointment.create');
+// Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+
 Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
-//Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
-Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', [AppointmentController::class, 'create'])->name('appointment.create');
-//Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', ['AppointmentController::class, 'create'])->name('appointment.create');
+// Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
+// Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+
+Route::post('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
 Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
 
@@ -95,3 +102,7 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//Route::get('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
+//Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', ['AppointmentController::class, 'create'])->name('appointment.create');

@@ -49,6 +49,7 @@
                         <th>ID</th>
                         <th>Nom du patient</th>
                         <th>Date de rendez-vous</th>
+                        <th>Durée</th>
                         <th>Montant</th>
                         <th>Statut</th>
                         <th>Stripe Charge ID</th>
@@ -61,6 +62,7 @@
                             <td>{{ $payment->id }}</td>
                             <td>{{ $payment->patient->user->firstname }} {{ $payment->patient->user->lastname }}</td>    
                             <td>{{ $payment->appointment->date_time }}</td>
+                            <td>{{ $payment->appointment->duration }}</td>
                             <td>{{ number_format($payment->amount, 2) }} €</td>
                             <td>{{ $payment->status }}</td>
                             <td>{{ $payment->stripe_charge_id }}</td>
