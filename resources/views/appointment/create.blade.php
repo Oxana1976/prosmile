@@ -9,7 +9,7 @@
 <form  action="{{ route('appointment.store') }}" method="post">
     @csrf
     <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
-
+    <input type="hidden" name="availability_id" value="{{ $availability_id }}">
     <label for="day">Jour de la réservation:</label>
     {{ $day }}
     

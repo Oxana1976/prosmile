@@ -93,8 +93,8 @@ class AppointmentController extends Controller
             $appointment->save();
 
         // Supprimer la plage horaire réservée
-        Availability::where('id', $request->availability_id)->delete();  
-        
+        Availability::where('id', $request->availability_id)->delete();
+        dd( $request->availability_id);
         return redirect()->route('appointment.index');
 
     }

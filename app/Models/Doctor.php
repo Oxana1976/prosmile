@@ -52,6 +52,7 @@ class Doctor extends Model
     
             while ($startTime < $endTime) {
                 $formattedAvailabilities[] = [
+                    'id' => $availability->id,  // Include the ID of each availability
                     'day' => $availability->day instanceof Carbon ? $availability->day->format('d/m/Y') : Carbon::parse($availability->day)->format('d/m/Y'),
                     'start' => $startTime->format('H:i'),
                     'end' => $startTime->copy()->addMinutes(30)->format('H:i'),

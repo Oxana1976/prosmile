@@ -37,7 +37,7 @@
                        
                             <td>
                             @if (isset($slots[$i]) && !empty($slots[$i]['start']))
-                                    <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id, 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end'], 'day' => base64_encode($day)]) }}">
+                                    <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id,'availability_id' => $slots['id'], 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end'], 'day' => base64_encode($day)]) }}">
                                         {{ $slots[$i]['start'] }} - {{ $slots[$i]['end'] }}
                                     </a>
                                 @else
