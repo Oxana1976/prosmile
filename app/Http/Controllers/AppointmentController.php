@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Availability;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,8 +31,10 @@ class AppointmentController extends Controller
 
     public function create(Request $request)
     {
-        $day = $request->get('day');
+        //$day = $request->get('day');
+        $day = base64_decode($request->get('day'));
         //dd($day);
+        //dd($request->all());
         $start_time = $request->get('start_time');
         // Vous pouvez récupérer les informations supplémentaires du docteur si nécessaire
         $doctor = Doctor::findOrFail($request->get('doctor_id'));
@@ -60,7 +63,8 @@ class AppointmentController extends Controller
         //     ]
         // );
         // // Combinaison de la date et de l'heure pour créer un datetime
-         $dateTime =  Carbon::createFromFormat('d/m/Y', $request->get('day'));
+         //$dateTime =  Carbon::createFromFormat('d/m/Y', $request->get('day'));
+        // $dateTime = $validatedData['day'] . ' ' . $validatedData['start_time'];
         // $validatedData['day'] . ' ' . $validatedData['start_time'];
             
       
@@ -74,7 +78,9 @@ class AppointmentController extends Controller
         //dd($request->all());
         // Combinaison de la date et de l'heure pour créer un datetime
         //$dateTime = $validatedData['day'] . ' ' . $validatedData['start_time'];
-
+        //$dateTime = $validatedData['day'] . ' ' . $validatedData['start_time'];
+        $dateTime = Carbon::createFromFormat('d/m/Y H:i', $validatedData['day'] . ' ' . $validatedData['start_time'])
+                      ->format('Y-m-d H:i:s'); // Format nécessaire pour MySQL
          // Création du rendez-vous
             $appointment = new Appointment;
            // $appointment->doctor_id = $validatedData['doctor_id'];
@@ -86,7 +92,8 @@ class AppointmentController extends Controller
             $appointment->duration = 30; // Durée fixe
             $appointment->save();
 
-          
+        // Supprimer la plage horaire réservée
+        Availability::where('id', $request->availability_id)->delete();  
         
         return redirect()->route('appointment.index');
 

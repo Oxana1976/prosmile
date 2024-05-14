@@ -17,7 +17,7 @@
 
     <label for="start_time">Heure de début:</label>
     {{ $start_time }}
-    @dump( $start_time)
+    
     <input type="hidden" name="start_time" value="{{ $start_time }}">
 
     <button type="submit">Confirmer le rendez-vous</button>

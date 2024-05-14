@@ -36,14 +36,10 @@
                         @foreach ($daysGrouped as $day => $slots)
                        
                             <td>
-                                @if (isset($slots[$i]) && !empty($slots[$i]['start']))
-                                    <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
-                                    <input type="hidden" name="start_time" value="{{ $slots[$i]['start'] }}">
-                                    <input type="hidden" name="day" value="{{ $day }}">
-                                    
-                                    <button type="submit">
+                            @if (isset($slots[$i]) && !empty($slots[$i]['start']))
+                                    <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id, 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end'], 'day' => base64_encode($day)]) }}">
                                         {{ $slots[$i]['start'] }} - {{ $slots[$i]['end'] }}
-                                    </button>
+                                    </a>
                                 @else
                                     ---
                                 @endif

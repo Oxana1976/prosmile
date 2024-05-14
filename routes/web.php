@@ -91,8 +91,9 @@ Route::get('/appointment', [AppointmentController::class, 'index'])->name('appoi
 // Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');
 // Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
-Route::post('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
+//Route::post('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
 Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+Route::get('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
 
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
