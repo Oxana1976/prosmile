@@ -26,7 +26,7 @@
                 <tr>
                     @foreach ($daysGrouped as $day => $slots)
                         <th>{{ $day }}</th>
-                        
+
                     @endforeach
                 </tr>
                 </thead>
@@ -34,10 +34,10 @@
                 @for ($i = 0; $i < $maxSlots; $i++)
                     <tr>
                         @foreach ($daysGrouped as $day => $slots)
-                       
+
                             <td>
-                            @if (isset($slots[$i]) && !empty($slots[$i]['start']))
-                                    <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id,'availability_id' => $slots['id'], 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end'], 'day' => base64_encode($day)]) }}">
+                                @if (isset($slots[$i]) && !empty($slots[$i]['start']))
+                                    <a href="{{ route('appointment.create', ['doctor_id' => $doctor->id,'availability_id' => $slots[$i]['id'], 'start_time' => $slots[$i]['start'], 'end_time' => $slots[$i]['end'], 'day' => base64_encode($day)]) }}">
                                         {{ $slots[$i]['start'] }} - {{ $slots[$i]['end'] }}
                                     </a>
                                 @else

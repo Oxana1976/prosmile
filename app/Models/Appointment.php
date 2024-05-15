@@ -5,10 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 class Appointment extends Model
 {
+    public const STATUS_CANCELED = "Annulé";
+    public const STATUS_BOOKED = "Planifié";
+    public const STATUS_COMPLETED = "Complété";
+
+    public const STATUS = [
+        self::STATUS_CANCELED,
+        self::STATUS_BOOKED,
+        self::STATUS_COMPLETED,
+    ];
+
     use HasFactory;
     protected $fillable = [
         'patient_id',
@@ -19,7 +30,7 @@ class Appointment extends Model
         'diagnostic',
         'description',
         'rx_image_url',
-               
+
     ];
     protected $table = 'appointments';
 

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Role;
 use App\Models\Specialty;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 
@@ -115,12 +118,29 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::with('availabilities')->find($id);
 
-        // Check if the doctor was found
         if (!$doctor) {
             return redirect()->route('doctor.index')->with('error', 'Docteur non trouvé.');
         }
 
         $availabilities = $doctor->formattedAvailabilities();
+
+        $appointments = $doctor->appointments()->where('status', Appointment::STATUS_BOOKED)->pluck('date_time');
+
+        foreach ($availabilities as $key => $availability)
+        {
+            foreach ($appointments as $appointment)
+            {
+                $availability_date = Carbon::createFromFormat('d/m/Y H:i', $availability['day']." ".$availability['start']);
+                $appointment_date = Carbon::createFromFormat('d/m/Y H:i', Carbon::parse($appointment)->format('d/m/Y H:i'));
+
+                if($appointment_date->equalTo($availability_date))
+                {
+                    unset($availabilities[$key]);
+                    break;
+                }
+            }
+        }
+
         $daysGrouped = collect($availabilities)->groupBy('day');
         $maxSlots = max($daysGrouped->map->count()->toArray());
 
