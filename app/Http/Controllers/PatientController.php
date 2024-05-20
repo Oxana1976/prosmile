@@ -125,12 +125,12 @@ class PatientController extends Controller
         $user_id = Auth::id(); 
         $patient = Patient::where('user_id', $user_id)->first();
         
-        if (! Gate::any([Role::MEDIC, Role::PATIENT, ])) {
-            abort(403);
-        }
-        if ($patient && $patient->id != $id) {
-            abort(403); // Interdire l'accès avec une erreur 403
-        }
+        // if (! Gate::any([Role::MEDIC, Role::PATIENT, ])) {
+        //     abort(403);
+        // }
+        // if ($patient && $patient->id != $id) {
+        //     abort(403); // Interdire l'accès avec une erreur 403
+        // }
         $patient = Patient::with(['user', 'appointments.payments'])->findOrFail($id);
         $appointment = Appointment::find($id);
         $doctor = Doctor::find($id);

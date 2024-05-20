@@ -31,7 +31,7 @@
                 @foreach($patient->appointments as $appointment)
                     <tr>
                         <td>
-                            <a href=" {{ route('patient.show_appointment', $patient->id, $appointment->id) }}">{{ \Carbon\Carbon::parse($appointment->date_time)->format('d/m/Y H:i') }}</a>
+                            <a href=" {{ route('patient.show_appointment', $patient->id, $appointment->id,) }}">{{ \Carbon\Carbon::parse($appointment->date_time)->format('d/m/Y H:i') }}</a>
                         </td>
                         <td>{{ $appointment->status }}</td>
                         <td>

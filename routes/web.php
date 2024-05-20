@@ -11,6 +11,7 @@ use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -72,6 +73,8 @@ Route::get('/patient/{id}', [PatientController::class, 'show'])
 		->where('id', '[0-9]+')->name('patient.show');
 Route::get('/patient/appointment/{id}', [PatientController::class, 'show_appointment'])
 		->where('id', '[0-9]+')->name('patient.show_appointment');
+
+		
 Route::get('/patient/filter', [PatientController::class, 'index'])->name('patients.index');
 Route::get('/patient/create', [PatientController::class, 'create'])->name('patient.create');
 Route::post('/patient', [PatientController::class, 'store'])->name('patient.store');
@@ -107,3 +110,7 @@ Route::get('/dashboard', function () {
 
 //Route::get('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
 //Route::get('/appointment/create/{doctor_id}/{start_time}/{end_time}', ['AppointmentController::class, 'create'])->name('appointment.create');
+
+Route::get('/accueil', [PageController::class, 'index'])->name('page.index');
+Route::get('/medecin', [PageController::class, 'show_all'])->name('page.show_all');
+Route::get('/medecin/{id}', [PageController::class, 'medecin_show'])->name('page.medecin_show');

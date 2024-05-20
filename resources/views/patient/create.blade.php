@@ -1,90 +1,108 @@
-@extends('layouts.main')
+<x-guest-layout>
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-@section('title', 'Inscription')
-
-@section('content')
-    <h2>Inscription</h2>
-
-    <form action="{{ route('patient.store') }}" method="post" method="post" >
+    <form method="POST" action="{{ route('patient.store') }}">
         @csrf
+
+        <!-- Prénom -->
         <div>
-            <label for="firstname">Prénom:</label>
-            <input type="text" id="firstname" name="firstname" required>
-        </div>
-      
-        <div>
-            <label for="lastname">Nom:</label>
-            <input type="text" id="lastname" name="lastname" required>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="password">Mot de passe:</label>
-            <input type="password" id="password" name="password" required>
+            <x-input-label for="firstname" :value="__('Prénom')" />
+            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus />
+            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
         </div>
 
-        <div>
-            <label for="language">Langue:</label>
-            <input type="text" id="language" name="language" required>
+        <!-- Nom -->
+        <div class="mt-4">
+            <x-input-label for="lastname" :value="__('Nom')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
-        <div>
-            <label for="login">Login:</label>
-            <input type="text" id="login" name="login" required>
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        
-        <div>
-            <label for="phone_number">Numéro de téléphone:</label>
-            <input type="tel" id="phone_number" name="phone_number" required>
-        </div>  
-       
-        <div>
-            <label for="address">Adresse</label>
-            <textarea name="address"> </textarea>
-            
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Mot de passe')" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-        <div>
-            <label for="birthdate">Date de naissance:</label>
-            <input type="date" name="birthdate" id="birthdate" required>
+
+        <!-- Langue -->
+        <div class="mt-4">
+            <x-input-label for="language" :value="__('Langue')" />
+            <x-text-input id="language" class="block mt-1 w-full" type="text" name="language" :value="old('language')" required />
+            <x-input-error :messages="$errors->get('language')" class="mt-2" />
         </div>
-        <div>
-            <label for="gender">Genre:</label>
-            <select id="gender" name="gender" required>
+
+        <!-- Login -->
+        <div class="mt-4">
+            <x-input-label for="login" :value="__('Login')" />
+            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required />
+            <x-input-error :messages="$errors->get('login')" class="mt-2" />
+        </div>
+
+        <!-- Numéro de téléphone -->
+        <div class="mt-4">
+            <x-input-label for="phone_number" :value="__('Numéro de téléphone')" />
+            <x-text-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" :value="old('phone_number')" required />
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+        </div>
+
+        <!-- Adresse -->
+        <div class="mt-4">
+            <x-input-label for="address" :value="__('Adresse')" />
+            <textarea id="address" class="block mt-1 w-full" name="address" required>{{ old('address') }}</textarea>
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+        </div>
+
+        <!-- Date de naissance -->
+        <div class="mt-4">
+            <x-input-label for="birthdate" :value="__('Date de naissance')" />
+            <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required />
+            <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+        </div>
+
+        <!-- Genre -->
+        <div class="mt-4">
+            <x-input-label for="gender" :value="__('Genre')" />
+            <select id="gender" name="gender" class="block mt-1 w-full" required>
                 <option value="M">Homme</option>
                 <option value="F">Femme</option>
-                
             </select>
-        </div>
-        <div>
-            <label for="about">Déscription:</label>
-            <input type="text" id="about" name="about" required>
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
 
-        <div>
-            <label for="emergency_contact_name">Contacter en cas d'urgence:</label>
-            <input type="text" id="emergency_contact_name" name="emergency_contact_name" required>
+        <!-- Description -->
+        <div class="mt-4">
+            <x-input-label for="about" :value="__('Description')" />
+            <x-text-input id="about" class="block mt-1 w-full" type="text" name="about" :value="old('about')" required />
+            <x-input-error :messages="$errors->get('about')" class="mt-2" />
         </div>
 
-        <div>
-            <label for="emergency_contact_phone">Numéro de téléphone en cas d'urgence</label>
-            <input type="tel" id="emergency_contact_phone" name="emergency_contact_phone" required>
+        <!-- Contact d'urgence -->
+        <div class="mt-4">
+            <x-input-label for="emergency_contact_name" :value="__('Contact d\'urgence')" />
+            <x-text-input id="emergency_contact_name" class="block mt-1 w-full" type="text" name="emergency_contact_name" :value="old('emergency_contact_name')" required />
+            <x-input-error :messages="$errors->get('emergency_contact_name')" class="mt-2" />
         </div>
 
-        
+        <!-- Numéro de téléphone d'urgence -->
+        <div class="mt-4">
+            <x-input-label for="emergency_contact_phone" :value="__('Numéro de téléphone d\'urgence')" />
+            <x-text-input id="emergency_contact_phone" class="block mt-1 w-full" type="tel" name="emergency_contact_phone" :value="old('emergency_contact_phone')" required />
+            <x-input-error :messages="$errors->get('emergency_contact_phone')" class="mt-2" />
+        </div>
 
-        <button>Inscription</button>
-            <a href="">Annuler</a>
+        <div class="flex items-center justify-end mt-4">
+            <x-primary-button class="ms-3">
+                {{ __('Inscription') }}
+            </x-primary-button>
+        </div>
     </form>
-     
-    @if ($errors->any())
-    <div class="alert alert-danger">
-	   <h2>Liste des erreurs de validation</h2>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+</x-guest-layout>
