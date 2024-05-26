@@ -24,7 +24,7 @@ class AppointmentSeeder extends Seeder
             'patient_id'=>2,
             'doctor_id'=>1,
             'date_time'=>'2024-02-03 10:30',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Abcès Dentaire',
             'description'=>'Un abcès dentaire a été diagnostiqué sur la racine de la troisième molaire inférieure droite.'
@@ -38,7 +38,7 @@ class AppointmentSeeder extends Seeder
             'patient_id'=>1,
             'doctor_id'=>3,
             'date_time'=>'2024-02-05 12:30',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Bruxisme et Usure Dentaire',
             'description'=>'Des signes d\'usure dentaire sévère attribuables au bruxisme nocturne ont été constatés.'
@@ -50,7 +50,7 @@ class AppointmentSeeder extends Seeder
             'patient_id'=>8,
             'doctor_id'=>6,
             'date_time'=>'2024-02-03 10:30',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Erosion Dentaire et Sensibilité',
             'description'=>'Des érosions prononcées de l\'émail ont été observées sur les canines et les prémolaires,'
@@ -58,14 +58,14 @@ class AppointmentSeeder extends Seeder
                 .'Un traitement de fluorure et l\'utilisation d\'un dentifrice désensibilisant ont été prescrits,'
                 .' ainsi que des recommandations pour des techniques de brossage douces.',
             'rx_image_url'=>'',
-    
+
             ],
-    
+
             [
             'patient_id'=>5,
             'doctor_id'=>4,
             'date_time'=>'2024-01-28 18:30',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Perte Dentaire Traumatique',
             'description'=>'Après un traumatisme subi lors d\'une activité sportive,'
@@ -78,21 +78,21 @@ class AppointmentSeeder extends Seeder
             'patient_id'=>11,
             'doctor_id'=>3,
             'date_time'=>'2024-03-03 10:00',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Maladie Parodontale',
             'description'=>'Le patient présente des signes de gingivite avec inflammation et saignement des gencives,'
                 .' surtout autour des incisives inférieures. Un nettoyage en profondeur par détartrage et '
                 . 'surfaçage radiculaire est conseillé pour éliminer la plaque et le tartre accumulés et aider à la régression de l\'inflammation.',
             'rx_image_url'=>'',
-        
+
             ],
-        
+
             [
             'patient_id'=>3,
             'doctor_id'=>3,
             'date_time'=>'2024-01-15 15:30',
-            'status'=>'Completé',
+            'status'=>'Complété',
             'duration'=>'30',
             'diagnostic'=>'Caries Dentaire',
             'description'=>'À la suite d\'une radiographie et d\'un examen clinique approfondi,'
@@ -109,9 +109,9 @@ class AppointmentSeeder extends Seeder
             'diagnostic'=>'',
             'description'=>'',
             'rx_image_url'=>'',
-            
+
             ],
-            
+
             [
             'patient_id'=>10,
             'doctor_id'=>4,
@@ -131,9 +131,9 @@ class AppointmentSeeder extends Seeder
             'diagnostic'=>'',
             'description'=>'',
             'rx_image_url'=>'',
-                
+
             ],
-                
+
             [
             'patient_id'=>6,
             'doctor_id'=>6,
@@ -153,9 +153,9 @@ class AppointmentSeeder extends Seeder
             'diagnostic'=>'',
             'description'=>'',
             'rx_image_url'=>'',
-                    
+
             ],
-                    
+
             [
             'patient_id'=>12,
             'doctor_id'=>1,
@@ -175,9 +175,9 @@ class AppointmentSeeder extends Seeder
             'diagnostic'=>'',
             'description'=>'',
             'rx_image_url'=>'',
-                        
+
             ],
-                        
+
             [
             'patient_id'=>7,
             'doctor_id'=>4,

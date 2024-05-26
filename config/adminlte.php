@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Role;
+
 return [
 
     /*
@@ -311,28 +313,74 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
+            'text' => 'Retour sur le site',
+            'url' => '/',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
+            'text' => 'Dashboard',
+            'url' => 'dashboard',
             'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'LISTE RENDEZ-VOUS'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text' => 'Liste des rendez-vous',
+            'url' => '/appointment',
+            'icon' => 'fas fa-fw fa-calendar',
+            'can' => [Role::CHIEF,Role::MEDIC, Role::SECRETARY],
+        ],
+        [
+            'text' => 'Ajouter un rendez-vous',
+            'url' => '/doctor',
+            'icon' => 'fas fa-fw fa-calendar-plus',
+            'can' => [Role::CHIEF, Role::SECRETARY],
+        ],
+        ['header' => 'GESTION PATIENTS'],
+        [
+            'text' => 'Liste des Patients',
+            'url' => '/patient',
             'icon' => 'fas fa-fw fa-user',
+            'can' => [Role::CHIEF, Role::SECRETARY],
         ],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Ajouter un Patient',
+            'url' => '/patient/create',
+            'icon' => 'fas fa-fw fa-user-plus',
+            'can' => [Role::CHIEF, Role::MEDIC, Role::SECRETARY],
         ],
+        ['header' => 'GESTION MEDECINS'],
+        [
+            'text' => 'Liste des médecins',
+            'url' => '/doctor',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => Role::CHIEF,
+        ],
+        [
+            'text' => 'Ajouter un médecin',
+            'url' => '/doctor/create',
+            'icon' => 'fas fa-fw fa-user-plus',
+            'can' => Role::CHIEF,
+        ],
+        ['header' => 'GESTION SECRETAIRES'],
+        [
+            'text' => 'Liste des secrétaires',
+            'url' => '/secretary',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => Role::CHIEF,
+        ],
+        [
+            'text' => 'Ajouter un secrétaire',
+            'url' => '/secretary/create',
+            'icon' => 'fas fa-fw fa-user-plus',
+            'can' => Role::CHIEF,
+        ],
+        ['header' => 'GESTION DES DISPONIBILITES'],
+        [
+            'text' => 'Liste des disponibilités',
+            'url' => '/availability',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => Role::CHIEF,
+        ],
+
         [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',

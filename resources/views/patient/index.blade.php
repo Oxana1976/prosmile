@@ -1,23 +1,21 @@
-@extends('layouts.main')
+@extends('adminlte::page')
 
 @section('title', 'Liste des Patients')
 
+@section('content_header')
+    <h1>Dashboard - Liste des Patients</h1>
+@stop
+
 @section('content')
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="form-group">
-    <form action="{{ route('patient.index') }}" method="GET">
-        <label for="birthdate">Date de Naissance:</label>
-        <input type="date" id="birthdate" name="birthdate" class="form-control" value="{{ request('birthdate') }}">
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-    </form>
-</div>
-    <title>Liste des Patients</title>
-     
+        <form action="{{ route('patient.index') }}" method="GET">
+            <label for="birthdate">Date de Naissance:</label>
+            <input type="date" id="birthdate" name="birthdate" class="form-control" value="{{ request('birthdate') }}">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
             thead th {
@@ -39,9 +37,9 @@
             margin-bottom: 1em;
             }
             .btn-primary {
-            background-color: grey; 
-            border-color: black; 
-            color: black; 
+            background-color: grey;
+            border-color: black;
+            color: black;
             font-weight: bold;
             }
             @media (max-width: 768px) {
@@ -73,6 +71,7 @@
                             <th>Date de naissance</th>
                             <th>Email</th>
                             <th>Téléphone</th>
+                            <th>Modifier</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,11 +81,12 @@
                                 <td>
                                     <a href="{{ route('patient.show', $patient->id) }} ">{{ $patient->user->lastname }}</a>
                                 </td>
-                               
+
                                 <td>{{ $patient->gender }}</td>
                                 <td>{{ $patient->birthdate }}</td>
                                 <td>{{ $patient->user->email }}</td>
                                 <td>{{ $patient->user->phone_number }}</td>
+                                <td><a href="{{ route('patient.edit' ,$patient->id) }}"><i class="fa fa-edit"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -94,9 +94,7 @@
             </div>
     </div>
     <ul>
-        <li><a href="{{ route('patient.create') }}">Inscrire un patient</a></li>    
+        <li><a href="{{ route('patient.create') }}">Inscrire un patient</a></li>
     </ul>
-</body>
-</html>
 
 @endsection

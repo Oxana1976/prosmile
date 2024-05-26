@@ -26,12 +26,12 @@ class PatientController extends Controller
         $patients = Patient::with('user')
         ->byBirthdate($request->birthdate)
         ->get();
-        
+
         return view('patient.index',[
             'patients' => $patients,
             'resource' => 'patients',
 
-           
+
         ]);
     }
 
@@ -86,7 +86,7 @@ class PatientController extends Controller
             'birthdate' => $request->birthdate,
             'emergency_contact_name' => $request-> emergency_contact_name,
             'emergency_contact_phone' => $request-> emergency_contact_phone,
-            
+
         ]);
 
             $user->patient()->save($patient);
@@ -101,9 +101,9 @@ class PatientController extends Controller
     public function show(string $id)
     {
         /////
-        $user_id = Auth::id(); 
+        $user_id = Auth::id();
         $patient = Patient::where('user_id', $user_id)->first();
-        
+
         if (! Gate::any([Role::MEDIC, Role::CHIEF,  Role::PATIENT,  Role:: SECRETARY])) {
             abort(403);
         }
@@ -121,21 +121,19 @@ class PatientController extends Controller
 
     public function show_appointment(string $id)
     {
-        
-        $user_id = Auth::id(); 
-        $patient = Patient::where('user_id', $user_id)->first();
-        
-        // if (! Gate::any([Role::MEDIC, Role::PATIENT, ])) {
-        //     abort(403);
-        // }
-        // if ($patient && $patient->id != $id) {
-        //     abort(403); // Interdire l'accès avec une erreur 403
-        // }
-        $patient = Patient::with(['user', 'appointments.payments'])->findOrFail($id);
-        $appointment = Appointment::find($id);
-        $doctor = Doctor::find($id);
-       
-       
+        $appointment = Appointment::findOrFail($id);
+        $patient = $appointment->patient;
+        $doctor = $appointment->doctor;
+
+        if(Auth::user()->role->role === Role::PATIENT)
+        {
+            return view('user_appointment_show', [
+                'patient' => $patient,
+                'appointment' => $appointment,
+                'doctor' => $doctor,
+            ]);
+        }
+
         return view('patient.show_appointment', [
             'patient' => $patient,
             'appointment' => $appointment,
@@ -154,10 +152,10 @@ class PatientController extends Controller
       // $doctor = Doctor::with('availabilities')->findOrFail($id);
        //$doctor = Doctor::with('specialties')->findOrFail($id);
        //$specialties = Specialty::all();
-       
+
        return view('patient.edit',[
            'patient' => $patient,
-          
+
        ]);
     }
 
@@ -175,7 +173,7 @@ class PatientController extends Controller
             'about'=> 'required',
             'emergency_contact_name' => 'required|string|max:60',
             'emergency_contact_phone' => 'required|string|max:20'
-          
+
 
         ]);
         // Mise à jour du User associé
@@ -190,11 +188,11 @@ class PatientController extends Controller
             'address' => $request->address,
             'emergency_contact_name' =>$request->emergency_contact_name,
             'emergency_contact_phone'=>$request->emergency_contact_phone,
-            
+
         ]);
         return view('patient.show', [
-            'patient' => $patient, 
-            
+            'patient' => $patient,
+
         ]);
     }
 

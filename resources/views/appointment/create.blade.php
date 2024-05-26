@@ -3,6 +3,7 @@
 @section('title', 'Créer un Rendez-vous')
 
 @section('content')
+    <div class="container" id="confirm-appointment">
 <h1>Créer un Rendez-vous pour {{ $doctor->user->firstname }} {{ $doctor->user->lastname }}</h1>
 
 
@@ -17,18 +18,20 @@
         @endforeach
     </select>
     @else
-   <b> {{ $patient->user->firstname }} {{ $patient->user->lastname }}</b>
+        <b class="name"> {{ $patient->user->firstname }} {{ $patient->user->lastname }}</b>
     @endif
+    <br>
     <label for="day">Jour de la réservation:</label>
-    {{ $day }}
+    <strong>{{ $day }}</strong>
 
     <input type="hidden" name="day" value="{{ $day }}">
-
+    <br>
     <label for="start_time">Heure de début:</label>
-    {{ $start_time }}
+    <strong>{{ $start_time }}</strong>
 
     <input type="hidden" name="start_time" value="{{ $start_time }}">
-
-    <button type="submit">Confirmer le rendez-vous</button>
+<br>
+    <button class="btn" type="submit">Confirmer le rendez-vous</button>
 </form>
+    </div>
 @endsection

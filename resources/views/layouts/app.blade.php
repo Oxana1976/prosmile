@@ -26,12 +26,12 @@
                     </div>
                 </header>
             @endif -->
-      
+
 
             <!-- Page Content -->
             <main>
-                {{ $slot }} 
-                
+                {{ $slot }}
+
             </main>
             <!-- <div class="mt-6 text-gray-500">
                 @if(auth()->check())

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Secretary;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
@@ -21,7 +22,7 @@ class SecretaryController extends Controller
         if (! Gate::allows( Role::CHIEF)) {
              abort(403);
          }
- 
+
          //or just one role for the hole controller
          // if (! Gate::allows(Role::MEDIC)) {
          //     abort(403);
@@ -31,7 +32,7 @@ class SecretaryController extends Controller
     {
         //
         $secretaries = Secretary::all();
-        
+
         return view('secretary.index',[
             'secretaries' => $secretaries,
             'resource' => 'secretaries',
@@ -44,7 +45,7 @@ class SecretaryController extends Controller
     public function create()
     {
         //
-      
+
         return view('secretary.create');
     }
 
@@ -63,7 +64,7 @@ class SecretaryController extends Controller
             'login' => 'required|string|max:30|unique:users',
             'phone_number' => 'required|string|max:20',
             'gender' => 'required|string|max:1',
-          
+
         ]);
 
         $user = User::create([
@@ -79,24 +80,24 @@ class SecretaryController extends Controller
 
         $user->save();
 
-      
+
 
            $secretary = new Secretary([
             'gender' => $request->gender,
-            
-            
+
+
         ]);
 
             $user->secretary()->save($secretary);
-            
-       
+
+
 
             // Associate default admin role to the user
         //    $adminRole = Role::where('role', 'admin')->first();
         //    $user->roles()->attach($adminRole);
            return redirect()->route('secretary.index')->with('success', 'Secretaire enregistrée avec succès.');
 
-          
+
     }
 
     /**
@@ -118,10 +119,10 @@ class SecretaryController extends Controller
        // $doctor = Doctor::with('availabilities')->findOrFail($id);
         //$doctor = Doctor::with('specialties')->findOrFail($id);
         //$specialties = Specialty::all();
-        
+
         return view('secretary.edit',[
             'secretary' => $secretary,
-           
+
         ]);
     }
 
@@ -135,7 +136,7 @@ class SecretaryController extends Controller
         $request->validate([
             'email' => 'required|email|max:255',
             'phone_number' => 'required|max:20',
-          
+
 
         ]);
         // Mise à jour du User associé
@@ -145,40 +146,19 @@ class SecretaryController extends Controller
             'phone_number' => $request->phone_number,
         ]);
         return view('secretary.index', [
-            'secretaries' => $secretaries, 
-           
+            'secretaries' => $secretaries,
+
         ]);
-        
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        //
-        // $secretary = Secretary::findOrFail($id);
-        //   // Récupérer l'ID de l'utilisateur associé
-        // $userId = $secretary->user->id;
-        // $secretary->delete();
-        // // Supprimer l'utilisateur associé
-        //  User::destroy($userId);
-
-
-           // Utiliser une transaction pour assurer l'intégrité des données
-    DB::transaction(function () use ($id) {
-        $secretary = Secretary::with('user')->findOrFail($id);  // Charger la secrétaire avec l'utilisateur associé
-        $userId = $secretary->user->id;
-
-        // Supprimer les entrées associées dans la table role_user
-        DB::table('role_user')->where('user_id', $userId)->delete();
-
-        // Supprimer la secrétaire
+        $secretary = Secretary::findOrFail($id);
+        $user = $secretary->user;
         $secretary->delete();
+        $user->delete();
 
-        // Supprimer l'utilisateur associé
-        User::destroy($userId);
-    });
         return redirect()->route('secretary.index')->with('success', 'Disponibilité supprimée avec succès.');
     }
 }

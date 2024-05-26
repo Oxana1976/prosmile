@@ -30,7 +30,7 @@ class AvailabilityController extends Controller
         //
         $doctors = Doctor::with(['user', 'availabilities'])->get();
         return view('availability.index', compact('doctors'));
-       
+
     }
 
     /**
@@ -66,7 +66,7 @@ class AvailabilityController extends Controller
         $availability->save();
 
         return redirect()->route('availability.index')->with('success', 'Disponibilité ajoutée avec succès.');
-        
+
     }
 
     /**
@@ -91,7 +91,7 @@ class AvailabilityController extends Controller
         'doctors' => $doctors,
         'availabilities' => $availabilities,
     ]);
-        
+
     }
 
     /**
@@ -99,7 +99,6 @@ class AvailabilityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $request->validate([
             'day' => 'required',
             'start_time' => 'required|date_format:H:i',
@@ -111,10 +110,10 @@ class AvailabilityController extends Controller
 
         return redirect()->route('availability.index')->with('success', 'Disponibilité mise à jour avec succès.');
     }
-      
 
 
-      
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -127,8 +126,8 @@ class AvailabilityController extends Controller
 
         return redirect()->route('availability.index')->with('success', 'Disponibilité supprimée avec succès.');
     }
-       
-    
+
+
 
 
 }

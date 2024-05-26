@@ -1,58 +1,12 @@
-@extends('layouts.main')
+@extends('adminlte::page')
 
-@section('title', 'Rendez-vous')
+@section('title', 'Liste des Rendez-vous')
+
+@section('content_header')
+    <h1>Dashboard - Liste des Rendez-vous</h1>
+@stop
 
 @section('content')
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Rendez-vous</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-              thead th {
-            font-weight: bold;
-            }
-            table {
-            width: 100%;
-            border-collapse: collapse;
-            }
-            th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            }
-            tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-            }
-            .form-group {
-            margin-bottom: 1em;
-            }
-            .btn-primary {
-            background-color: grey; 
-            border-color: black; 
-            color: black; 
-            font-weight: bold;
-            }
-            @media (max-width: 768px) {
-                .btn-primary {
-                    padding: 10px 20px; /* Plus grand pour les interactions tactiles */
-                }
-                .form-group label {
-                    display: block; /* Assurez-vous que les labels sont au-dessus des entrées sur les petits écrans */
-                }
-                .table {
-                    font-size: 0.8rem;
-                }
-                th, td {
-                    padding: 4px; /* réduire le padding */
-                }
-            }
-    </style>
-</head>
-<body>
     <div class="container mt-5">
         <h2>Rendez-vous</h2>
         <div class="table-responsive">
@@ -62,7 +16,7 @@
                         <th>Date et heure</th>
                         <th>Status</th>
                         <th>Durée</th>
-                        
+
                         <th>Diagnostic</th>
                         <th>Patient</th>
                         <th>Médecin</th>
@@ -71,10 +25,14 @@
                 <tbody>
                     @foreach ($appointments as $appointment)
                         <tr>
-                            <td>{{ $appointment->date_time }}</td>
+                            <td>
+                                <a href="{{ route('patient.show_appointment', $appointment->id) }}">
+                                    {{ $appointment->date_time }}
+                                </a>
+                            </td>
                             <td>{{ $appointment->status }}</td>
                             <td>{{ $appointment->duration }}</td>
-                            
+
                             <td>{{ $appointment->diagnostic }}</td>
                             <td>{{ $appointment->patient->user->firstname }} {{ $appointment->patient->user->lastname }}</td>
                             <td>{{ $appointment->doctor->user->firstname }} {{ $appointment->doctor->user->lastname }}</td>
@@ -84,10 +42,14 @@
             </table>
         </div>
     </div>
-    <ul>
-        <!-- Ajoutez vos liens ou boutons ici si nécessaire -->
-    </ul>
-</body>
-</html>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <h2>Liste des erreurs de validation</h2>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection

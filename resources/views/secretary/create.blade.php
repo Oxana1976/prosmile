@@ -1,8 +1,13 @@
-@extends('layouts.main')
+@extends('adminlte::page')
 
 @section('title', 'Ajouter une secretaire')
 
+@section('content_header')
+    <h1>Dashboard - Ajouter une secretaire</h1>
+@stop
+
 @section('content')
+    <div class="container">
     <h2>Ajouter une secretaire</h2>
 
     <form action="{{ route('secretary.store') }}" method="post" method="post">
@@ -11,7 +16,7 @@
             <label for="firstname">Prénom:</label>
             <input type="text" id="firstname" name="firstname" required>
         </div>
-      
+
         <div>
             <label for="lastname">Nom:</label>
             <input type="text" id="lastname" name="lastname" required>
@@ -34,24 +39,23 @@
             <label for="login">Login:</label>
             <input type="text" id="login" name="login" required>
         </div>
-        
+
         <div>
             <label for="phone_number">Numéro de téléphone:</label>
             <input type="tel" id="phone_number" name="phone_number" required>
-        </div>  
-       
-     
+        </div>
+
+
         <div>
             <label for="gender">Genre:</label>
             <select id="gender" name="gender" required>
                 <option value="M">Homme</option>
                 <option value="F">Femme</option>
-                
+
             </select>
         </div>
-      
+
         <button>Ajouter</button>
-            <a href="{{ route('secretary.index') }}">Annuler</a>
     </form>
 
     @if ($errors->any())
@@ -64,6 +68,5 @@
         </ul>
     </div>
     @endif
-
-    <nav><a href="{{ route('secretary.index') }}">Retour à l'index</a></nav>
+    </div>
 @endsection
