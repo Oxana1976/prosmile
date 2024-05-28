@@ -22,7 +22,7 @@
                             <li><strong>Medecin:</strong>{{$doctor->user->firstname}} {{$doctor->user->lastname}}</li>
                         </ul>
 
-                        <img src="{{ asset('images/' . $appointment->rx_image_url) }}" alt="Imagerie de {{ $patient->user->firstname }}"
+                        <img src="{{ asset('storage/'.$appointment->rx_image_url) }}" alt="Imagerie de {{ $patient->user->firstname }}"
                              style="width:150px; height:auto;">
                     </div>
 

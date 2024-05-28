@@ -5,7 +5,7 @@
 @section('content')
     <main class="container section-padding30">
         <h1> {{ $doctor->user->firstname }} {{ $doctor->user->lastname }} </h1>
-        <img class="img-fluid" src="{{ $doctor->photo_url }}" alt="Photo de {{ $doctor->user->firstname }}"
+        <img class="img-fluid" src="{{  asset('images/' . $doctor->photo_url) }}" alt="Photo de {{ $doctor->user->firstname }}"
              style="width:150px; height:auto;">
         <ul>
             <li><strong>Spécialités:</strong> {{ $doctor->specialties->pluck('specialty')->implode(', ') }}</li>

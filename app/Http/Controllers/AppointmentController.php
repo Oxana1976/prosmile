@@ -130,12 +130,22 @@ class AppointmentController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $path = Storage::disk('public')->put('image', $request->file('photo'));
         $appointment = Appointment::findOrFail($id);
+        $picture = $request->file('photo');
+
+        if($picture)
+        {
+            if (Storage::disk('public')->exists($picture)) {
+                Storage::disk('public')->delete($picture);
+            }
+
+            $path = Storage::disk('public')->put('image', $picture);
+            $appointment->rx_image_url = $path;
+        }
+
         $appointment->description = $request->get('description');
         $appointment->diagnostic = $request->get('diagnostic');
         $appointment->status = $request->get('status');
-        $appointment->rx_image_url = $path;
         $appointment->save();
 
         return redirect()->route('patient.show_appointment', $appointment->id);
