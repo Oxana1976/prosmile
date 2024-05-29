@@ -35,10 +35,7 @@
             <input type="text" id="language" name="language" required>
         </div>
 
-        <div>
-            <label for="login">Login:</label>
-            <input type="text" id="login" name="login" required>
-        </div>
+     
 
         <div>
             <label for="phone_number">Numéro de téléphone:</label>

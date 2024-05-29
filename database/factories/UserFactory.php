@@ -66,7 +66,6 @@ class UserFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
             'lastname' => fake()->lastName,
-            'login' => fake()->userName,//TODO need explanation
             'language' => fake()->languageCode,
             'phone_number' => fake()->phoneNumber,
             'role_id' => Role::firstWhere('role', Role::PATIENT),

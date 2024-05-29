@@ -15,7 +15,7 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    private const LIMIT_APPOINTMENT_DISPLAY = 5;
+    private const LIMIT_APPOINTMENT_DISPLAY = 100;
 
     public function index(): View
     {
@@ -27,11 +27,13 @@ class ProfileController extends Controller
         {
             $passed_appointments = $appointments
                 ->where('date_time', '<', Carbon::now())
+                ->where('status', Appointment::STATUS_COMPLETED)
                 ->sortByDesc('date_time')
                 ->take(self::LIMIT_APPOINTMENT_DISPLAY);
 
             $future_appointments = $appointments
                 ->where('date_time', '>=', Carbon::now())
+                ->where('status', Appointment::STATUS_BOOKED)
                 ->sortByDesc('date_time')
                 ->take(self::LIMIT_APPOINTMENT_DISPLAY);
         }
@@ -48,10 +50,7 @@ class ProfileController extends Controller
 
     public function dashboard(): View
     {
-        // if (! Gate::allows( Role::CHIEF)) {
-        //     abort(403);
-        // }
-        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+        if (!Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
             abort(403);
         }
 

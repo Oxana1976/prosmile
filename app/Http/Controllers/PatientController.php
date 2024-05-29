@@ -56,7 +56,6 @@ class PatientController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'language' => 'required|string|max:2',
-            'login' => 'required|string|max:30|unique:users',
             'phone_number' => 'required|string|max:20',
             'gender' => 'required|string|max:1',
             'address'=> 'required',
@@ -72,9 +71,8 @@ class PatientController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'language' => $request->language,
-            'login' => $request->login,
             'phone_number' => $request->phone_number,
-            'role_id' => Role::where('role', 'patient')->value('id'),
+            'role_id' => Role::where('role', Role::PATIENT)->first()->id,
         ]);
 
         $user->save();
@@ -86,10 +84,10 @@ class PatientController extends Controller
             'birthdate' => $request->birthdate,
             'emergency_contact_name' => $request-> emergency_contact_name,
             'emergency_contact_phone' => $request-> emergency_contact_phone,
-
         ]);
 
             $user->patient()->save($patient);
+            
             return view('patient.show', [
                 'patient' => $patient,
             ]);

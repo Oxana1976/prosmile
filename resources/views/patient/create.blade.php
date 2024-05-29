@@ -40,13 +40,6 @@
             <x-input-error :messages="$errors->get('language')" class="mt-2" />
         </div>
 
-        <!-- Login -->
-        <div class="mt-4">
-            <x-input-label for="login" :value="__('Login')" />
-            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required />
-            <x-input-error :messages="$errors->get('login')" class="mt-2" />
-        </div>
-
         <!-- Numéro de téléphone -->
         <div class="mt-4">
             <x-input-label for="phone_number" :value="__('Numéro de téléphone')" />

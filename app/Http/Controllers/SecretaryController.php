@@ -61,7 +61,7 @@ class SecretaryController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'language' => 'required|string|max:2',
-            'login' => 'required|string|max:30|unique:users',
+            //'login' => 'required|string|max:30|unique:users',
             'phone_number' => 'required|string|max:20',
             'gender' => 'required|string|max:1',
 
@@ -73,7 +73,7 @@ class SecretaryController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'language' => $request->language,
-            'login' => $request->login,
+            //'login' => $request->login,
             'phone_number' => $request->phone_number,
             'role_id' => Role::where('role', 'secrétaire')->value('id'),
         ]);
