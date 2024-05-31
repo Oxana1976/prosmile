@@ -68,7 +68,7 @@ class UserFactory extends Factory
             'lastname' => fake()->lastName,
             'language' => fake()->languageCode,
             'phone_number' => fake()->phoneNumber,
-            'role_id' => Role::firstWhere('role', Role::PATIENT),
+            'role_id' => Role::where('role', Role::PATIENT)->first(),
         ];
     }
 
