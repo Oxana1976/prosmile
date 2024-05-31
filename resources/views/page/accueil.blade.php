@@ -15,16 +15,16 @@
                             <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
                                 <div class="hero__caption">
 
-                                    <h1 class="cd-headline letters scale">We care about your
+                                    <h1 class="cd-headline letters scale">Nous prenons soin de votre 
                                         <strong class="cd-words-wrapper">
-                                            <b class="is-visible" style="color:#427891;">health</b>
-                                            <b style="color:#427891;">sushi</b>
-                                            <b style="color:#427891;">steak</b>
+                                            <b class="is-visible" style="color:#427891;">santé</b>
+                                            <b style="color:#427891;">confort</b>
+                                            <b style="color:#427891;">sourire</b>
                                         </strong>
                                     </h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.1s">Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi uquip ex ea commodo consequat is aute
-                                        irure.</p>
+                                    <p data-animation="fadeInLeft" data-delay="0.1s">Nous nous engageons à fournir des soins dentaires de qualité,
+                                         visant à améliorer votre confort et votre bien-être
+                                        </p>
                                 </div>
                             </div>
                         </div>
@@ -36,16 +36,14 @@
                         <div class="row">
                             <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
                                 <div class="hero__caption">
-                                    <h1 class="cd-headline letters scale">We care about your
+                                    <h1 class="cd-headline letters scale">Nous prenons soin de votre
                                         <strong class="cd-words-wrapper">
-                                            <b class="is-visible" style="color:#427891;">health</b>
-                                            <b style="color:#427891;">sushi</b>
-                                            <b style="color:#427891;">steak</b>
+                                            <b class="is-visible" style="color:#427891;">santé</b>
+                                            <b style="color:#427891;">confort</b>
+                                            <b style="color:#427891;">sourire</b>
                                         </strong>
                                     </h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.1s">Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi uquip ex ea commodo consequat is aute
-                                        irure.</p>
+                                    <p data-animation="fadeInLeft" data-delay="0.1s">Votre satisfaction et votre santé bucco-dentaire sont notre priorité absolue.</p>
                                 </div>
                             </div>
                         </div>
@@ -62,11 +60,13 @@
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2 mb-35">
-                                <span style="color:#2c5061">About Our Company</span>
-                                <h2>Welcome To Our Hospital</h2>
+                                <span style="color:#2c5061">À PROPOS DE NOTRE CABINET</span>
+                                <h2>Bienvenue Dans Notre Cabinet</h2>
                             </div>
-                            <p>There arge many variations ohf pacgssages of sorem gpsum ilable, but the majority have
-                                suffered alteration in some form, by ected humour, or randomised words whi.</p>
+                           <p><strong>Nous nous engageons à offrir des soins dentaires de premier ordre, visant à améliorer votre confort et votre bien-être.
+                             Notre équipe de professionnels dévoués utilise les dernières technologies et techniques pour assurer des traitements efficaces
+                              et personnalisés. Que ce soit pour des soins préventifs, des traitements esthétiques ou des interventions plus complexes,
+                               nous sommes là pour répondre à vos besoins et vous aider à maintenir un sourire sain et radieux.</strong></p>
                             <!-- <div class="about-btn1 mb-30" >
                                 <a href="about.html" class="btn about-btn"  >Find Doctors .<i class="ti-arrow-right"></i></a>
                             </div>
@@ -110,8 +110,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="section-tittle text-center mb-100">
-                            <span style="color:#2c5061">Our Doctors</span>
-                            <h2>Our Specialist</h2>
+                            <span style="color:#2c5061">Nos médecins</span>
+                            <h2>Nos Spécialistes</h2>
                         </div>
                     </div>
                 </div>

@@ -82,11 +82,12 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>About Us</h4>
+                                    <h4>À PROPOS DE NOUS</h4>
                                     <div class="footer-pera">
-                                        <p class="info1">Lorem igpsum doldfor sit amet, adipiscing elit, sed do eiusmod
-                                            tempor cergelit rgh. </p>
-                                        <p class="info1">Lorem ipsum dolor sit amet, adipiscing elit.</p>
+                                        <p class="info1">
+                                            Forts de nombreuses années d'expérience, nos dentistes et spécialistes sont passionnés par leur métier et s'engagent à fournir
+                                            des traitements personnalisés pour répondre aux besoins individuels de chaque patient. </p>
+                                        <p class="info1">Rejoignez notre famille de patients satisfaits et découvrez l'expérience unique de soins dentaires que nous offrons.</p>
                                     </div>
                                 </div>
                             </div>
