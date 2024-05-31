@@ -1,0 +1,20 @@
+POST http://localhost:8000/login
+Content-Type: application/x-www-form-urlencoded
+
+email=chief@mail.com&password=password
+
+
+GET http://localhost:8000/api/user/create
+Authorization: Bearer votre_jeton_de_session
+
+GET http://localhost:8000/api/specialties
+Authorization: Bearer {1|p9oz3YfaZkEynUS2hO2MTh9eDtdKp67bXT3hZpadc865cd57}
+
+GET http://localhost:8000/api/patients
+Authorization: Bearer {1|p9oz3YfaZkEynUS2hO2MTh9eDtdKp67bXT3hZpadc865cd57}
+
+GET http://localhost:8000/api/patient/{1}
+Authorization: Bearer {1|p9oz3YfaZkEynUS2hO2MTh9eDtdKp67bXT3hZpadc865cd57}
+
+GET http://localhost:8000/api/specialties
+Authorization: Bearer {2|m6HXiaCEvZNs1PqjLNfq6KkjvAFOpsURT0EgLC1o0cebfdd0}
