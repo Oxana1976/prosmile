@@ -9,6 +9,7 @@ use Tests\TestCase;
 class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
+    //Vérifie que la page de confirmation du mot de passe est accessible
 
     public function test_confirm_password_screen_can_be_rendered(): void
     {
@@ -18,7 +19,7 @@ class PasswordConfirmationTest extends TestCase
 
         $response->assertStatus(200);
     }
-
+    //Vérifie que la réponse redirige
     public function test_password_can_be_confirmed(): void
     {
         $user = User::factory()->create();
@@ -30,7 +31,7 @@ class PasswordConfirmationTest extends TestCase
         $response->assertRedirect();
         $response->assertSessionHasNoErrors();
     }
-
+    //Vérifie qu'il y a des erreurs dans la session
     public function test_password_is_not_confirmed_with_invalid_password(): void
     {
         $user = User::factory()->create();

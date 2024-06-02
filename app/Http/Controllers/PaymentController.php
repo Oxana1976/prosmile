@@ -4,12 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use App\Models\Role;
+use Illuminate\Support\Facades\Gate;
 
 class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+     
+       if (! Gate::allows( Role::CHIEF)) {
+            abort(403);
+        }
+
+        
+    }
     public function index()
     {
         //

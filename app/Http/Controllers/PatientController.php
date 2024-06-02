@@ -122,6 +122,9 @@ class PatientController extends Controller
         $appointment = Appointment::findOrFail($id);
         $patient = $appointment->patient;
         $doctor = $appointment->doctor;
+        // if (! Gate::any([Role::MEDIC, Role::CHIEF,  Role::PATIENT,  ])) {
+        //     abort(403);
+        // }
 
         if(Auth::user()->role->role === Role::PATIENT)
         {
@@ -146,10 +149,7 @@ class PatientController extends Controller
     {
         //
         $patient = Patient::find($id);
-        //$doctor->load('user');
-      // $doctor = Doctor::with('availabilities')->findOrFail($id);
-       //$doctor = Doctor::with('specialties')->findOrFail($id);
-       //$specialties = Specialty::all();
+
 
        return view('patient.edit',[
            'patient' => $patient,

@@ -14,16 +14,10 @@ class SpecialtyController extends Controller
      * Display a listing of the resource.
      */
     public function __construct()
-    {
-        //Several roles at once for the hole controller
+    {    
        if (! Gate::allows( Role::CHIEF)) {
             abort(403);
-        }
-
-        //or just one role for the hole controller
-        // if (! Gate::allows(Role::MEDIC)) {
-        //     abort(403);
-        // }
+        }    
     }
     public function index()
     {

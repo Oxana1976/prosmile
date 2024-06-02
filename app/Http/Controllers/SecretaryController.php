@@ -18,15 +18,12 @@ class SecretaryController extends Controller
 
      public function __construct()
      {
-         //Several roles at once for the hole controller
+         
         if (! Gate::allows( Role::CHIEF)) {
              abort(403);
          }
 
-         //or just one role for the hole controller
-         // if (! Gate::allows(Role::MEDIC)) {
-         //     abort(403);
-         // }
+         
      }
     public function index()
     {
@@ -61,7 +58,6 @@ class SecretaryController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'language' => 'required|string|max:2',
-            //'login' => 'required|string|max:30|unique:users',
             'phone_number' => 'required|string|max:20',
             'gender' => 'required|string|max:1',
 
@@ -73,29 +69,18 @@ class SecretaryController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'language' => $request->language,
-            //'login' => $request->login,
             'phone_number' => $request->phone_number,
             'role_id' => Role::where('role', 'secrétaire')->value('id'),
         ]);
 
         $user->save();
-
-
-
            $secretary = new Secretary([
             'gender' => $request->gender,
-
-
         ]);
 
-            $user->secretary()->save($secretary);
-
-
-
-            // Associate default admin role to the user
-        //    $adminRole = Role::where('role', 'admin')->first();
-        //    $user->roles()->attach($adminRole);
-           return redirect()->route('secretary.index')->with('success', 'Secretaire enregistrée avec succès.');
+        $user->secretary()->save($secretary);
+     
+        return redirect()->route('secretary.index')->with('success', 'Secretaire enregistrée avec succès.');
 
 
     }
@@ -115,10 +100,7 @@ class SecretaryController extends Controller
     {
         //
         $secretary = Secretary::find($id);
-         //$doctor->load('user');
-       // $doctor = Doctor::with('availabilities')->findOrFail($id);
-        //$doctor = Doctor::with('specialties')->findOrFail($id);
-        //$specialties = Specialty::all();
+       
 
         return view('secretary.edit',[
             'secretary' => $secretary,
