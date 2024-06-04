@@ -102,18 +102,18 @@ class DoctorController extends Controller
 
         $user->doctor()->save($doctor);
 
-        // Associate default member role to the user
-        // $memberRole = Role::where('role', 'member')->first();
-        // $user->roles()->attach($memberRole);
-
         // Attach specialties
         $doctor->specialties()->sync($request->input('specialties', []));
-        //$doctor->specialties()->sync($request->specialties);
+       
         return redirect()->route('doctor.index')->with('success', 'Médecin enregistré avec succès.');
     }
 
     public function show(string $id)
+
     {
+        if (!Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         $doctor = Doctor::with('availabilities')->find($id);
 
         if (!$doctor) {
@@ -160,9 +160,7 @@ class DoctorController extends Controller
             abort(403);
         }
         $doctor = Doctor::find($id);
-        //$doctor->load('user');
-        // $doctor = Doctor::with('availabilities')->findOrFail($id);
-        //$doctor = Doctor::with('specialties')->findOrFail($id);
+       
         $specialties = Specialty::all();
 
         return view(
@@ -218,24 +216,6 @@ class DoctorController extends Controller
 
         $doctor = Doctor::findOrFail($id);
         $doctor->specialties()->sync($request->specialties);
-
-        // foreach ($request->availabilities as $index => $availabilityData) {
-        //     // Vérifier si l'ID est fourni dans les données de disponibilité
-        //     if (isset($availabilityData['id'])) {
-        //         // ID disponible, continuer avec la mise à jour ou la création
-        //         $availability = Availability::findOrNew($availabilityData['id']);
-        //     } else {
-        //         // ID non disponible, créer une nouvelle instance d'Availability
-        //         $availability = new Availability();
-        //     }
-
-        //     // Mettre à jour les données de disponibilité
-        //     $availability->day = $availabilityData['day'];
-        //     $availability->start_time = $availabilityData['start_time'];
-        //     $availability->end_time = $availabilityData['end_time'];
-        //     $availability->doctor_id = $id; // Assigner l'ID du médecin
-        //     $availability->save();
-        // }
 
         return view(
             'doctor.show',

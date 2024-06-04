@@ -9,11 +9,15 @@ use App\Models\Role;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
 
 class AppointmentController extends Controller
 {
     public function index()
     {
+        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         $appointments = Appointment::all();
         $doctors = Doctor::all();
         $patients = Patient::all();

@@ -41,6 +41,9 @@ class PatientController extends Controller
     public function create()
     {
         //
+        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         return view('patient.create');
     }
 
@@ -126,7 +129,10 @@ class PatientController extends Controller
         //     abort(403);
         // }
 
-        if(Auth::user()->role->role === Role::PATIENT)
+        // if(Auth::user()->role->role === Role::PATIENT)
+
+        if (auth()->user()->role->role === Role::PATIENT)
+     
         {
             return view('user_appointment_show', [
                 'patient' => $patient,
@@ -148,6 +154,9 @@ class PatientController extends Controller
     public function edit(string $id)
     {
         //
+        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         $patient = Patient::find($id);
 
 
