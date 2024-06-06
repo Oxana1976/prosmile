@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AvailabilityController;
@@ -76,6 +78,10 @@ Route::middleware('auth')->group(function () {
         ->where('id', '[0-9]+')->name('appointment.update');
     Route::get('/appointment/image/delete/{id}', [AppointmentController::class, 'imageDelete'])
         ->where('id', '[0-9]+')->name('appointment.image.delete');
+
+    Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
+    Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.post');
+    Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
 });
 
 Route::get('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');
@@ -84,3 +90,6 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 Route::get('/', [PageController::class, 'index'])->name('page.index');
 Route::get('/medecin', [PageController::class, 'show_all'])->name('page.show_all');
 Route::get('/medecin/{id}', [PageController::class, 'medecin_show'])->name('page.medecin_show');
+
+Route::get('/user/create_token', [UserController::class, 'createToken']);
+Route::get('/user/store_token', [UserController::class, 'storeToken']);
