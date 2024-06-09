@@ -5,7 +5,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="container mx-auto">
-<h1>test de stripe</h1>
+<h1>Payer la consultation</h1>
 
 <form action="{{ route('stripe.post') }}" method="post" class="mt-16">
     {{ csrf_field() }}

@@ -6,9 +6,21 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use Illuminate\Support\Facades\Gate;
 
 class StripeController extends Controller
+
 {
+
+    public function __construct()
+    {
+     
+       if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
+
+        
+    }
     public function index()
     {
         return view('stripe.index');
