@@ -49,9 +49,9 @@ class Appointment extends Model
         return $this->hasOne(Comment::class);
     }
 
-    public function payments(): HasMany
+    public function payment(): HasOne
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasOne(Payment::class);
     }
 
     public function notifications(): HasMany

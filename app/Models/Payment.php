@@ -9,14 +9,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Payment extends Model
 {
     use HasFactory;
+
+    const PENDING = "pending";
+    const COMPLETED = "completed";
+    const ABORTED = "aborted";
+
     protected $fillable = [
         'patient_id',
         'appointment_id',
         'amount',
         'status',
         'stripe_charge_id',
-        
-               
+
+
     ];
     protected $table = 'payments';
 

@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('page.index')">
                         {{ __('Retour sur le site') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('user.payment')">
+                        {{ __('Vos paiements') }}
+                    </x-nav-link>
                 </div>
             </div>
 

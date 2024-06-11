@@ -12,32 +12,45 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>Date et heure</th>
-                        <th>Status</th>
-                        <th>Durée</th>
-
-                        <th>Diagnostic</th>
-                        <th>Patient</th>
-                        <th>Médecin</th>
-                    </tr>
+                <tr>
+                    <th>Date et heure</th>
+                    <th>Status</th>
+                    <th>Durée</th>
+                    <th>Diagnostic</th>
+                    <th>Patient</th>
+                    <th>Médecin</th>
+                    <th>Paiement</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($appointments as $appointment)
-                        <tr>
-                            <td>
-                                <a href="{{ route('patient.show_appointment', $appointment->id) }}">
-                                    {{ $appointment->date_time }}
-                                </a>
-                            </td>
-                            <td>{{ $appointment->status }}</td>
-                            <td>{{ $appointment->duration }}</td>
+                @foreach ($appointments as $appointment)
+                    <tr>
+                        <td>
+                            <a href="{{ route('patient.show_appointment', $appointment->id) }}">
+                                {{ $appointment->date_time }}
+                            </a>
+                        </td>
+                        <td>{{ $appointment->status }}</td>
+                        <td>{{ $appointment->duration }}</td>
 
-                            <td>{{ $appointment->diagnostic }}</td>
-                            <td>{{ $appointment->patient->user->firstname }} {{ $appointment->patient->user->lastname }}</td>
-                            <td>{{ $appointment->doctor->user->firstname }} {{ $appointment->doctor->user->lastname }}</td>
-                        </tr>
-                    @endforeach
+                        <td>{{ $appointment->diagnostic }}</td>
+                        <td>{{ $appointment->patient->user->firstname }} {{ $appointment->patient->user->lastname }}</td>
+                        <td>{{ $appointment->doctor->user->firstname }} {{ $appointment->doctor->user->lastname }}</td>
+                        <td>
+                            @if($appointment->payment)
+                                @if($appointment->payment->status === \App\Models\Payment::PENDING)
+                                    Demande de paiement déjà envoyée
+                                @elseif($appointment->payment->status === \App\Models\Payment::COMPLETED)
+                                    Payé
+                                @endif
+                            @elseif($appointment->status === \App\Models\Appointment::STATUS_COMPLETED)
+                                <a href="{{ route('stripe.index', $appointment->id) }}">
+                                    Faire un paiement
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

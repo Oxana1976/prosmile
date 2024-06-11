@@ -18,6 +18,8 @@ use App\Http\Controllers\PageController;
 require __DIR__.'/auth.php';
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard/user', [ProfileController::class, 'index'])->name('user.dashboard');
+    Route::get('/dashboard/user/payment', [ProfileController::class, 'payment'])->name('user.payment');
+
     Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -79,9 +81,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/appointment/image/delete/{id}', [AppointmentController::class, 'imageDelete'])
         ->where('id', '[0-9]+')->name('appointment.image.delete');
 
-    Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
-    Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.post');
-    Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
+    Route::get('/payment/{id}', [StripeController::class, 'index'])->name('stripe.index');
+    Route::post('/store', [StripeController::class, 'store'])->name('stripe.store');
+    Route::get('/checkout/{id}', [StripeController::class, 'checkout'])->name('stripe.prepare');
+    Route::get('/success/{id}', [StripeController::class, 'success'])->name('stripe.success');
 });
 
 Route::get('/appointment/create/', [AppointmentController::class, 'create'])->name('appointment.create');

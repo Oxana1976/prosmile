@@ -16,7 +16,7 @@ class Patient extends Model
         'birthdate',
         'gender',
         'about',
-        'emergency_contact_name', 
+        'emergency_contact_name',
         'emergency_contact_phone',
 
     ];
@@ -50,8 +50,8 @@ class Patient extends Model
          if ($birthdate) {
              return $query->where('birthdate', '=', $birthdate);
          }
- 
+
          return $query;
     }
-  
+
 }

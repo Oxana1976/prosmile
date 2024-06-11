@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Appointment;
+use App\Models\Payment;
 use App\Models\Role;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
@@ -23,8 +24,7 @@ class ProfileController extends Controller
         $passed_appointments = [];
         $future_appointments = [];
 
-        if($appointments)
-        {
+        if ($appointments) {
             $passed_appointments = $appointments
                 ->where('date_time', '<', Carbon::now())
                 ->where('status', Appointment::STATUS_COMPLETED)
@@ -50,7 +50,7 @@ class ProfileController extends Controller
 
     public function dashboard(): View
     {
-        if (!Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+        if (!Gate::allows(Role::CHIEF)) {
             abort(403);
         }
 
@@ -64,8 +64,7 @@ class ProfileController extends Controller
             default => false,
         };
 
-        if($appointments)
-        {
+        if ($appointments) {
             $passed_appointments = $appointments
                 ->where('date_time', '<', Carbon::now())
                 ->sortByDesc('date_time')
@@ -131,5 +130,19 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function payment()
+    {
+        $patient_id = Auth::user()->patient->id;
+
+        $payments = Payment::query()->where('patient_id', $patient_id)->get();
+
+        return view(
+            'user_payment',
+            [
+                'payments' => $payments,
+            ]
+        );
     }
 }
