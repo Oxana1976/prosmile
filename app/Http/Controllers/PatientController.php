@@ -112,7 +112,7 @@ class PatientController extends Controller
             abort(403); // Interdire l'accès avec une erreur 403
         }
         //////
-        $patient = Patient::with(['user', 'appointments.payments'])->findOrFail($id);
+        $patient = Patient::with(['user', 'appointments.payment'])->findOrFail($id);
         return view('patient.show', compact('patient'));
         $patient = Patient::find($id);
         return view('patient.show', [

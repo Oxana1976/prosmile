@@ -50,7 +50,7 @@ class ProfileController extends Controller
 
     public function dashboard(): View
     {
-        if (!Gate::allows(Role::CHIEF)) {
+        if (! Gate::any([Role::MEDIC, Role::CHIEF,  Role:: SECRETARY])) {
             abort(403);
         }
 

@@ -11,8 +11,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="section-tittle text-center mb-100">
-                            <span style="color:#2c5061">Our Doctors</span>
-                            <h2>Our Specialist</h2>
+                            <span style="color:#2c5061">Nos Médecins</span>
+                            <h2>Nos Spécialistes</h2>
                         </div>
                     </div>
                 </div>
