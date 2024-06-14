@@ -380,6 +380,13 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'can' => Role::CHIEF,
         ],
+        ['header' => 'GESTION DES PAIEMENTS'],
+        [
+            'text' => 'Liste des paiments',
+            'url' => '/payment',
+            'icon' => 'fas fa-fw fa-user',
+            'can' =>[Role::CHIEF, Role::SECRETARY, Role::MEDIC],
+        ],
 
         [
             'text' => 'multilevel',

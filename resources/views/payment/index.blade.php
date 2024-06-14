@@ -1,6 +1,10 @@
-@extends('layouts.main')
+@extends('adminlte::page')
 
 @section('title', 'Liste des Paiements')
+
+@section('content_header')
+    <h1>Dashboard - Paiements</h1>
+@stop
 
 @section('content')
 <!DOCTYPE html>

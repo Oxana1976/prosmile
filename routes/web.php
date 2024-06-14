@@ -96,3 +96,5 @@ Route::get('/medecin/{id}', [PageController::class, 'medecin_show'])->name('page
 
 Route::get('/user/create_token', [UserController::class, 'createToken']);
 Route::get('/user/store_token', [UserController::class, 'storeToken']);
+
+Route::get('/invoice/download/{id}', [StripeController::class, 'downloadInvoicePdf'])->name('invoice.download');

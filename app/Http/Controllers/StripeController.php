@@ -7,11 +7,22 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use PDF;
+use App\Models\Role;
+use Illuminate\Support\Facades\Gate;
+
+
 
 class StripeController extends Controller
+
 {
+
+   
     public function index(int $id)
     {
+        if (! Gate::any([Role::MEDIC, Role::CHIEF, Role:: SECRETARY])) {
+            abort(403);
+        }
         $appointment = Appointment::findOrFail($id);
 
         return view(
@@ -42,38 +53,42 @@ class StripeController extends Controller
     public function checkout(int $id)
     {
         $appointment = Appointment::findOrFail($id);
+        $patient = $appointment->patient;
+        if (auth()->user()->role->role === Role::PATIENT && auth()->user()->id === $patient->user_id){
+            $appointment = Appointment::findOrFail($id);
 
-        $email = $appointment->patient->user->email;
-        $amount = (float)$appointment->payment->amount;
+            $email = $appointment->patient->user->email;
+            $amount = (float)$appointment->payment->amount;
 
-        $product_name = 'Rendez-vous num ' . $appointment->id;
+            $product_name = 'Rendez-vous num ' . $appointment->id;
 
-        Stripe::setApiKey(config('stripe.sk'));
+            Stripe::setApiKey(config('stripe.sk'));
 
-        $session = Session::create(
-            [
-                'payment_method_types' => ['card', 'bancontact'],
-                "customer_email" => $email,
-                'line_items' => [
-                    [
-                        'price_data' => [
-                            'currency' => 'eur',
-                            'product_data' => [
-                                'name' => $product_name,
+            $session = Session::create(
+                [
+                    'payment_method_types' => ['card', 'bancontact'],
+                    "customer_email" => $email,
+                    'line_items' => [
+                        [
+                            'price_data' => [
+                                'currency' => 'eur',
+                                'product_data' => [
+                                    'name' => $product_name,
+                                ],
+                                'unit_amount' => $amount * 100,
                             ],
-                            'unit_amount' => $amount * 100,
+                            'quantity' => 1,
                         ],
-                        'quantity' => 1,
                     ],
-                ],
-                'mode' => 'payment',
-                'success_url' =>
-                    route('stripe.success', ['id' => $appointment->payment->id]) . '?session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('stripe.index', ['id' => $appointment->id]),
-            ]
-        );
+                    'mode' => 'payment',
+                    'success_url' =>
+                        route('stripe.success', ['id' => $appointment->payment->id]) . '?session_id={CHECKOUT_SESSION_ID}',
+                    'cancel_url' => route('stripe.index', ['id' => $appointment->id]),
+                ]
+                );
 
-        return redirect()->away($session->url);
+            return redirect()->away($session->url);
+        }else  abort(403);
     }
 
     public function success(Request $request, int $id)
@@ -91,5 +106,23 @@ class StripeController extends Controller
         }
 
         return redirect()->route('user.dashboard');
+    }
+
+    public function downloadInvoicePdf($id)
+    {
+        $payment = Payment::findOrFail($id);
+        $appointment = Appointment::findOrFail($payment->appointment_id);
+        $patient = $appointment->patient;
+        $amount = $payment->amount;
+        $invoiceData = [
+            'appointment' => $appointment,
+            'patient' => $patient,
+            'amount' => $amount,
+            'payment' => $payment,
+        ];
+
+        $pdf = PDF::loadView('invoices.pdf', $invoiceData);
+
+        return $pdf->download('invoice_' . $payment->id . '.pdf');
     }
 }

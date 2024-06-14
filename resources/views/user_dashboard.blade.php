@@ -42,6 +42,10 @@
                                                 {{ \Illuminate\Support\Carbon::parse($passed_appointment->date_time)->format('d/m/Y H:i') }}
                                             </a>
                                             avec le docteur {{ $passed_appointment->doctor->user->lastname . " " . $passed_appointment->doctor->user->firstname }}
+                                              <!-- Ajouter le bouton de téléchargement de facture -->
+                                            <a style="text-decoration: underline;" href="{{ route('invoice.download',  $passed_appointment->payment->id) }} " >
+                                                Télécharger la facture
+                                            </a>
                                         </li>
                                     @empty
                                         Pas de rendez-vous
