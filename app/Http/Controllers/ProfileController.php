@@ -20,9 +20,17 @@ class ProfileController extends Controller
 
     public function index(): View
     {
-        $appointments = Auth::user()->patient->appointments;
+        //$appointments = Auth::user()->patient->appointments;
+        $appointments = null;
         $passed_appointments = [];
         $future_appointments = [];
+
+        /////
+        if(Auth::user()->patient)
+        {
+            $appointments = Auth::user()->patient->appointments;
+        }
+        //////
 
         if ($appointments) {
             $passed_appointments = $appointments

@@ -46,8 +46,11 @@ class PageController extends Controller
 
         $availabilities = $doctor->formattedAvailabilities();
 
-        $appointments = $doctor->appointments()->where('status', Appointment::STATUS_BOOKED)->pluck('date_time');
-
+        //$appointments = $doctor->appointments()->where('status', Appointment::STATUS_BOOKED)->pluck('date_time');
+        $appointments = $doctor->appointments()
+        ->where('status', '!=' ,Appointment::STATUS_CANCELED)
+        ->pluck('date_time')
+        ;
         foreach ($availabilities as $key => $availability) {
             foreach ($appointments as $appointment) {
                 $availability_date = Carbon::createFromFormat(
