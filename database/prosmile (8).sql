@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 12 juin 2024 à 12:33
+-- Généré le : mer. 26 juin 2024 à 09:35
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -60,13 +60,66 @@ INSERT INTO `appointments` (`id`, `patient_id`, `doctor_id`, `date_time`, `statu
 (12, 12, 1, '2024-05-15 17:30:00', 'Annulé', 30, '', '', '', NULL, NULL),
 (13, 8, 5, '2024-02-03 12:00:00', 'Annulé', 30, '', '', '', NULL, NULL),
 (14, 7, 4, '2024-03-15 17:00:00', 'Annulé', 30, '', '', '', NULL, NULL),
-(15, 16, 1, '2024-06-17 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-11 06:42:48', '2024-06-11 06:42:48'),
+(15, 16, 1, '2024-06-17 10:00:00', 'Complété', 30, 'Détartrage et surfaçage radiculaire pour éliminer la plaque et le tartre sous les gencives. Administration locale  d\'antibiotiques pour contrôler l\'infection bactérienne.', 'La parodontite', NULL, '2024-06-11 06:42:48', '2024-06-17 06:48:52'),
 (16, 16, 5, '2024-06-12 14:30:00', 'Complété', 30, 'La carie est retirée pour éliminer la source de l\'irritation.\r\n La cavité est soigneusement nettoyée pour éliminer toute infection ou débris.\r\n La dent est restaurée avec un plombage ou une couronne pour protéger la pulpe et éviter toute réinfection.', 'Pulpite', 'image/nRhHofeBLPg1LC1H6i4TtmG0RFfcefrzdvsduDbo.webp', '2024-06-11 06:43:49', '2024-06-11 07:42:32'),
-(17, 4, 2, '2024-06-14 14:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-11 06:48:34', '2024-06-11 06:48:34'),
-(18, 16, 2, '2024-06-13 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-11 06:55:20', '2024-06-11 06:55:20'),
+(17, 4, 2, '2024-06-14 14:30:00', 'Complété', 30, 'Élimination de la plaque dentaire et du tartre au-dessus et au-dessous de la ligne gingivale.\r\nLissage des surfaces radiculaires pour éliminer les toxines bactériennes et favoriser la ré-adhésion des gencives à la dent.', 'Gingivite', NULL, '2024-06-11 06:48:34', '2024-06-14 14:54:27'),
+(18, 16, 2, '2024-06-13 10:00:00', 'Complété', 30, 'Élimination de la plaque dentaire et du tartre au-dessus et au-dessous de la ligne gingivale .\r\nLissage des surfaces radiculaires pour éliminer les toxines bactériennes et favoriser la ré-adhésion des gencives à la dent.', 'Gingivite', NULL, '2024-06-11 06:55:20', '2024-06-14 16:10:10'),
 (19, 5, 5, '2024-06-18 10:00:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-11 07:25:30', '2024-06-11 08:51:49'),
 (20, 16, 1, '2024-06-10 10:00:00', 'Complété', 30, 'Réalisation d\'un détartrage pour enlever la plaque et le tartre accumulés autour des appareils orthodontiques, suivi d\'un polissage pour lisser les surfaces dentaires.\r\n Utilisation d\'une solution antiseptique pour irriguer les poches parodontales et réduire la charge bactérienne.', 'Orthodontite', 'image/vekWrSVB8VOwF070sDLgGHq5OFT119rRbjrwnowN.webp', '2024-06-11 08:06:53', '2024-06-11 08:10:41'),
-(21, 17, 4, '2024-06-23 14:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-11 08:52:21', '2024-06-11 08:53:15');
+(21, 17, 4, '2024-06-23 14:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-11 08:52:21', '2024-06-11 08:53:15'),
+(22, 16, 3, '2024-06-24 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-14 05:23:47', '2024-06-14 05:23:47'),
+(23, 16, 2, '2024-06-14 14:30:00', 'Complété', 30, 'Utilisation de plombage en argent pour les zones non visibles et soumises à une forte pression de mastication.', 'Carie Dentaire', NULL, '2024-06-14 16:29:15', '2024-06-14 16:31:23'),
+(24, 16, 3, '2024-06-12 13:00:00', 'Complété', 30, 'Élimination des poches parodontales profondes en repositionnant les gencives pour faciliter le nettoyage et réduire les poches.\r\n Transplantation de tissu gingival pour couvrir les racines exposées et renforcer les gencives.\r\n Ajout de matériaux de greffe osseuse pour reconstruire l\'os perdu autour des dents.', 'Parodontite', 'image/gm5O4Xyy9c3FapS5ltSX4L6ZFz8ucHBuAAebhiQ0.webp', '2024-06-14 17:05:12', '2024-06-14 17:08:30'),
+(25, 17, 5, '2024-06-18 18:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-14 17:18:10', '2024-06-14 17:18:10'),
+(26, 17, 6, '2024-06-16 10:00:00', 'Complété', 30, 'Une incision est faite dans l\'abcès pour permettre au pus de s\'écouler, soulageant immédiatement la pression et la douleur,  un traitement de canal est effectué. La pulpe infectée est retirée, l\'intérieur de la dent est nettoyé et désinfecté, puis scellé avec un matériau de remplissage.', 'Abcès dentaire', 'image/j7Uo4cIj16cVEdnJz6366NFdlBJlaYfmmobj0ZUT.webp', '2024-06-16 07:06:32', '2024-06-16 07:11:56'),
+(27, 17, 5, '2024-06-15 13:00:00', 'Complété', 30, 'Plombage', 'Carie dentaire', NULL, '2024-06-16 07:17:55', '2024-06-16 07:18:32'),
+(28, 17, 6, '2024-06-16 10:30:00', 'Complété', 30, 'Pulpite', 'Pulpite', NULL, '2024-06-16 07:55:18', '2024-06-16 07:57:47'),
+(29, 17, 6, '2024-06-16 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 08:06:25', '2024-06-16 08:06:25'),
+(30, 17, 6, '2024-06-16 12:30:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-16 08:07:26', '2024-06-16 09:26:15'),
+(31, 16, 6, '2024-06-16 10:30:00', 'Complété', 30, 'Parodontite', 'Parodontite', NULL, '2024-06-16 08:11:41', '2024-06-16 08:15:14'),
+(32, 16, 6, '2024-06-15 10:00:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-16 08:20:43', '2024-06-16 08:22:43'),
+(33, 17, 6, '2024-06-15 13:00:00', 'Complété', 30, 'Pulpite', 'Pulpite', NULL, '2024-06-16 08:36:13', '2024-06-16 08:41:50'),
+(34, 17, 4, '2024-06-16 10:00:00', 'Complété', 30, 'Pulpite', 'Pulpite', NULL, '2024-06-16 08:46:28', '2024-06-16 08:50:14'),
+(35, 17, 4, '2024-06-16 10:00:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-16 08:58:05', '2024-06-16 09:00:16'),
+(36, 17, 4, '2024-06-16 10:00:00', 'Complété', 30, 'carie', 'carie', NULL, '2024-06-16 09:03:40', '2024-06-16 09:13:52'),
+(37, 16, 1, '2024-06-17 10:30:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-16 09:39:26', '2024-06-17 11:46:26'),
+(38, 1, 1, '2024-06-17 18:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-16 09:39:58', '2024-06-16 09:44:40'),
+(39, 17, 1, '2024-06-17 18:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-16 09:45:05', '2024-06-16 09:48:21'),
+(40, 17, 1, '2024-06-17 11:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 09:49:27', '2024-06-16 09:49:27'),
+(41, 16, 4, '2024-06-16 11:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 10:05:17', '2024-06-16 10:05:17'),
+(42, 16, 4, '2024-06-16 18:30:00', 'Complété', 30, 'Élimination de la plaque et du tartre des surfaces dentaires et sous la ligne gingivale.  Rabotage et suture des gencives pour réduire la profondeur des poches.', 'L\'orthodontite', NULL, '2024-06-16 10:09:28', '2024-06-16 17:23:56'),
+(43, 17, 4, '2024-06-14 18:30:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-16 12:35:21', '2024-06-16 12:36:49'),
+(44, 17, 4, '2024-06-14 10:00:00', 'Complété', 30, 'pulpite', 'Pulpite', NULL, '2024-06-16 12:50:20', '2024-06-16 12:55:49'),
+(45, 1, 4, '2024-06-14 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 12:56:41', '2024-06-16 12:56:41'),
+(46, 17, 2, '2024-06-14 18:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-16 16:04:47', '2024-06-16 16:08:35'),
+(47, 17, 2, '2024-06-14 18:00:00', 'Complété', 30, 'Pulpite', 'Pulpite', NULL, '2024-06-16 16:18:52', '2024-06-16 16:20:14'),
+(48, 16, 2, '2024-06-14 18:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 16:23:12', '2024-06-16 16:23:12'),
+(49, 17, 2, '2024-06-14 14:30:00', 'Complété', 30, 'Gengivite', 'Gengivite', NULL, '2024-06-16 16:30:08', '2024-06-16 16:33:07'),
+(50, 17, 3, '2024-06-24 10:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 17:45:52', '2024-06-17 06:42:39'),
+(51, 1, 3, '2024-06-24 10:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-16 17:49:40', '2024-06-16 17:49:40'),
+(52, 17, 4, '2024-06-12 18:30:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-17 11:09:54', '2024-06-17 11:12:05'),
+(53, 17, 3, '2024-06-18 10:00:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-17 11:42:09', '2024-06-18 06:18:43'),
+(54, 17, 3, '2024-06-18 11:00:00', 'Complété', 30, 'Carie', 'Carie', NULL, '2024-06-17 11:42:36', '2024-06-18 09:49:19'),
+(55, 17, 1, '2024-06-22 13:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-17 12:16:55', '2024-06-17 12:19:02'),
+(56, 17, 1, '2024-06-22 13:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-17 12:20:39', '2024-06-17 12:20:39'),
+(57, 17, 2, '2024-06-23 14:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-18 06:23:24', '2024-06-18 06:24:50'),
+(58, 17, 2, '2024-06-23 14:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-18 06:26:26', '2024-06-18 06:27:34'),
+(59, 17, 2, '2024-06-23 14:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-18 06:32:25', '2024-06-18 06:33:45'),
+(60, 17, 2, '2024-06-23 18:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-18 06:52:56', '2024-06-18 06:54:33'),
+(61, 17, 2, '2024-06-23 18:30:00', 'Annulé', 30, NULL, NULL, NULL, '2024-06-18 06:56:42', '2024-06-18 07:01:01'),
+(62, 1, 2, '2024-06-23 18:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-18 07:01:21', '2024-06-18 07:01:21'),
+(63, 17, 1, '2024-06-19 14:30:00', 'Complété', 30, NULL, NULL, NULL, '2024-06-19 15:12:22', '2024-06-19 15:14:12'),
+(64, 17, 1, '2024-06-19 15:00:00', 'Complété', 30, NULL, NULL, NULL, '2024-06-19 15:16:03', '2024-06-19 15:16:58'),
+(65, 17, 1, '2024-06-19 17:00:00', 'Complété', 30, NULL, NULL, NULL, '2024-06-19 15:17:27', '2024-06-19 15:17:46'),
+(66, 17, 1, '2024-06-19 18:00:00', 'Complété', 30, NULL, NULL, NULL, '2024-06-19 15:20:25', '2024-06-19 15:20:44'),
+(67, 19, 1, '2024-06-22 10:00:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-22 19:16:50', '2024-06-22 19:16:50'),
+(68, 17, 1, '2024-06-25 10:00:00', 'Complété', 30, 'Parodontite', 'Parodontite', 'image/wq21MD1UTLb22CDkGbSNqaGuW0nyeAfdP6XzhLaE.webp', '2024-06-22 19:22:53', '2024-06-22 19:25:36'),
+(69, 16, 1, '2024-06-25 10:30:00', 'Complété', 30, 'Plombage', 'Carie dentaire', NULL, '2024-06-24 17:38:00', '2024-06-24 18:01:04'),
+(70, 16, 2, '2024-06-25 10:00:00', 'Complété', 30, 'Orthodontite', 'Orthodontite', 'image/lM4AyzIfYMZgCvN5z4emChvDjxxRlsDVyR3c960r.webp', '2024-06-24 17:59:16', '2024-06-25 06:01:32'),
+(71, 16, 1, '2024-06-25 12:30:00', 'Complété', 30, 'Plombage', 'Carie Dentaire', 'image/dZRpqrxMljgEghxLzlLXzfZMedYLzchgIUmhhBeu.webp', '2024-06-25 05:57:58', '2024-06-25 06:23:28'),
+(72, 16, 2, '2024-06-27 18:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-25 06:00:13', '2024-06-25 06:00:13'),
+(73, 16, 2, '2024-06-27 14:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-25 06:19:35', '2024-06-25 06:19:35'),
+(74, 16, 1, '2024-06-26 14:30:00', 'Planifié', 30, NULL, NULL, NULL, '2024-06-25 06:21:33', '2024-06-25 06:21:33');
 
 -- --------------------------------------------------------
 
@@ -126,7 +179,16 @@ INSERT INTO `availabilities` (`id`, `doctor_id`, `day`, `start_time`, `end_time`
 (37, 4, '2024-06-23', '14:30:00', '19:00:00'),
 (38, 5, '2024-06-22', '10:00:00', '13:00:00'),
 (39, 6, '2024-06-24', '14:30:00', '19:00:00'),
-(40, 1, '2024-06-10', '10:00:00', '13:00:00');
+(40, 1, '2024-06-10', '10:00:00', '13:00:00'),
+(42, 6, '2024-06-16', '10:00:00', '13:00:00'),
+(43, 4, '2024-06-16', '10:00:00', '13:00:00'),
+(45, 4, '2024-06-16', '14:30:00', '19:00:00'),
+(46, 3, '2024-06-18', '10:00:00', '13:00:00'),
+(47, 1, '2024-06-19', '14:30:00', '19:00:00'),
+(48, 1, '2024-06-25', '10:00:00', '13:00:00'),
+(50, 2, '2024-06-25', '10:00:00', '13:00:00'),
+(51, 2, '2024-06-27', '14:30:00', '19:00:00'),
+(52, 1, '2024-06-26', '14:30:00', '19:00:00');
 
 -- --------------------------------------------------------
 
@@ -139,6 +201,14 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('maximods@gmail.com|127.0.0.1', 'i:1;', 1718548877),
+('maximods@gmail.com|127.0.0.1:timer', 'i:1718548877;', 1718548877);
 
 -- --------------------------------------------------------
 
@@ -406,7 +476,11 @@ INSERT INTO `patients` (`id`, `user_id`, `address`, `birthdate`, `gender`, `abou
 (14, 46, '5961 Mack Motorway\nMoshestad, GA 94842-4902', '2003-04-30', 'h', 'Alice thoughtfully: \'but then--I shouldn\'t be hungry for it, while the Mouse in the air, I\'m afraid, sir\' said Alice, feeling very curious sensation, which puzzled her very much of a feather flock.', 'Pete O\'Conner', '928.897.7072'),
 (15, 47, '24581 Leila Forks\nEast Dawn, VT 64235', '2000-02-24', 'f', 'Shark, But, when the tide rises and sharks are around, His voice has a timid voice at her side. She was close behind us, and he\'s treading on her spectacles, and began picking them up again with a.', 'Laury Willms', '+1-773-924-7406'),
 (16, 48, 'Rue  de L\'urbanisme 32', NULL, NULL, 'Allergie au pénicilline', 'Tomas Harry', '333666'),
-(17, 50, 'Av. de la Liberté 30', '2003-06-12', 'M', 'Aucune problème de santé', 'Ella Emma', '333666');
+(17, 50, 'Av. de la Liberté 30', '2003-06-12', 'M', 'Aucune problème de santé', 'Ella Emma', '333666'),
+(18, 51, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 52, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 53, 'Wurlitzergasse 8/30, PLZ/Wohnort: 1160/Wien', '2013-02-02', 'M', 'Allergie au pénicilline', 'Noa Sull', '9898'),
+(21, 54, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -438,7 +512,39 @@ INSERT INTO `payments` (`id`, `patient_id`, `appointment_id`, `amount`, `status`
 (6, 3, 6, 135.00, 'completed', 'ch_7dRYNIeMZJzRWHbQN3PUBJNx', '2024-06-11 06:39:58', '2024-06-11 06:39:58'),
 (7, 4, 7, 150.00, 'completed', 'pi_3PQQMTP2C9BxUoL51yBSAOPT', '2024-06-11 06:45:19', '2024-06-11 06:47:30'),
 (8, 16, 16, 75.00, 'completed', 'pi_3PQRFiP2C9BxUoL50ME3bsD1', '2024-06-11 07:43:12', '2024-06-11 07:44:34'),
-(9, 16, 20, 85.00, 'completed', 'pi_3PQRgaP2C9BxUoL50F6SCOW9', '2024-06-11 08:11:03', '2024-06-11 08:12:20');
+(9, 16, 20, 85.00, 'completed', 'pi_3PQRgaP2C9BxUoL50F6SCOW9', '2024-06-11 08:11:03', '2024-06-11 08:12:20'),
+(10, 4, 17, 95.00, 'completed', 'pi_3PRdRtP2C9BxUoL50pOzuZXN', '2024-06-14 14:55:40', '2024-06-14 14:58:09'),
+(11, 16, 18, 105.00, 'completed', 'pi_3PRee2P2C9BxUoL51IwfE4IL', '2024-06-14 16:11:55', '2024-06-14 16:14:47'),
+(12, 16, 23, 150.00, 'completed', 'pi_3PRexxP2C9BxUoL51f8xhgG9', '2024-06-14 16:31:44', '2024-06-14 16:35:21'),
+(13, 16, 24, 200.00, 'completed', 'pi_3PRfXiP2C9BxUoL51eZ41UeQ', '2024-06-14 17:09:17', '2024-06-14 17:12:18'),
+(14, 17, 26, 99.00, 'completed', 'pi_3PSFB5P2C9BxUoL51v76ZuaU', '2024-06-16 07:13:01', '2024-06-16 07:15:14'),
+(15, 17, 27, 85.00, 'completed', 'pi_3PSFFrP2C9BxUoL51zhTFQbB', '2024-06-16 07:18:55', '2024-06-16 07:20:11'),
+(16, 17, 28, 87.00, 'completed', 'pi_3PSFryP2C9BxUoL50pGz5CDZ', '2024-06-16 07:58:12', '2024-06-16 07:59:33'),
+(17, 16, 31, 49.00, 'completed', 'pi_3PSGAtP2C9BxUoL50L2Uagzz', '2024-06-16 08:15:31', '2024-06-16 08:19:07'),
+(18, 16, 32, 65.00, 'completed', 'pi_3PSGG1P2C9BxUoL50vQOCORm', '2024-06-16 08:22:59', '2024-06-16 08:24:25'),
+(19, 17, 33, 10.00, 'completed', 'pi_3PSGYeP2C9BxUoL51rklsHji', '2024-06-16 08:42:13', '2024-06-16 08:43:40'),
+(20, 17, 34, 100.00, 'completed', 'pi_3PSGhRP2C9BxUoL51eHstumk', '2024-06-16 08:50:38', '2024-06-16 08:52:45'),
+(21, 17, 35, 56.00, 'completed', 'pi_3PSGwkP2C9BxUoL50SaYUPab', '2024-06-16 09:00:40', '2024-06-16 09:08:33'),
+(22, 17, 36, 53.00, 'completed', 'pi_3PSH3WP2C9BxUoL505vi6zjS', '2024-06-16 09:14:13', '2024-06-16 09:15:34'),
+(23, 17, 30, 125.00, 'completed', 'pi_3PSHG5P2C9BxUoL51cZvEl4i', '2024-06-16 09:26:38', '2024-06-16 09:28:33'),
+(24, 17, 43, 222.00, 'completed', 'pi_3PSKKSP2C9BxUoL51k6Mr1q9', '2024-06-16 12:43:46', '2024-06-16 12:45:17'),
+(25, 17, 44, 65.00, 'completed', 'pi_3PSKX6P2C9BxUoL50DlfMHGg', '2024-06-16 12:57:11', '2024-06-16 12:58:21'),
+(26, 17, 47, 59.00, 'completed', 'pi_3PSNnUP2C9BxUoL51niuD0Sf', '2024-06-16 16:25:07', '2024-06-16 16:27:29'),
+(27, 17, 49, 49.00, 'completed', 'pi_3PSNvmP2C9BxUoL50lFrKYX1', '2024-06-16 16:34:06', '2024-06-16 16:36:03'),
+(28, 16, 42, 135.00, 'completed', 'pi_3PSOjSP2C9BxUoL50dBSLyKe', '2024-06-16 17:24:49', '2024-06-16 17:27:23'),
+(29, 16, 15, 98.00, 'completed', 'pi_3PSbHHP2C9BxUoL50unsrmJe', '2024-06-17 06:49:42', '2024-06-17 06:51:09'),
+(30, 17, 52, 65.00, 'completed', 'pi_3PSfjKP2C9BxUoL50gAhWxxI', '2024-06-17 11:17:19', '2024-06-17 11:36:24'),
+(31, 16, 37, 75.00, 'pending', NULL, '2024-06-17 11:46:57', '2024-06-17 11:46:57'),
+(32, 17, 53, 55.00, 'completed', 'pi_3PSxHqP2C9BxUoL50yTApz3U', '2024-06-18 06:19:10', '2024-06-18 06:21:10'),
+(33, 17, 54, 50.00, 'pending', NULL, '2024-06-18 09:49:41', '2024-06-18 09:49:41'),
+(34, 17, 63, 51.00, 'pending', NULL, '2024-06-19 15:14:32', '2024-06-19 15:14:32'),
+(35, 17, 64, 125.00, 'pending', NULL, '2024-06-19 15:18:11', '2024-06-19 15:18:11'),
+(36, 17, 65, 65.00, 'pending', NULL, '2024-06-19 15:18:26', '2024-06-19 15:18:26'),
+(37, 17, 66, 75.00, 'pending', NULL, '2024-06-19 15:21:04', '2024-06-19 15:21:04'),
+(38, 17, 68, 500.00, 'completed', 'pi_3PUbTMP2C9BxUoL50XZH8zae', '2024-06-22 19:26:17', '2024-06-22 19:27:58'),
+(39, 16, 69, 125.00, 'pending', NULL, '2024-06-24 18:01:32', '2024-06-24 18:01:32'),
+(40, 16, 70, 125.00, 'completed', 'pi_3PVULPP2C9BxUoL51JJ7WNDl', '2024-06-25 06:01:56', '2024-06-25 06:03:20'),
+(41, 16, 71, 222.00, 'completed', 'pi_3PVUgdP2C9BxUoL51O7SAmNN', '2024-06-25 06:23:51', '2024-06-25 06:25:16');
 
 -- --------------------------------------------------------
 
@@ -464,7 +570,9 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 21, 'API_TOKEN_PERSONNAL_CHIEF', '359344a9f18a0c60dd79c83f18d6c381f0440f2efe7f997466302fbb845963ac', '[\"*\"]', '2024-06-11 07:28:29', NULL, '2024-06-11 07:26:36', '2024-06-11 07:28:29');
+(1, 'App\\Models\\User', 21, 'API_TOKEN_PERSONNAL_CHIEF', '359344a9f18a0c60dd79c83f18d6c381f0440f2efe7f997466302fbb845963ac', '[\"*\"]', '2024-06-11 07:28:29', NULL, '2024-06-11 07:26:36', '2024-06-11 07:28:29'),
+(2, 'App\\Models\\User', 21, 'API_TOKEN_PERSONNAL_CHIEF', '792c4809c68c4e957bf3fbe92493cccd5083d6d3e2b8ec85866a689085ef44d0', '[\"*\"]', NULL, NULL, '2024-06-13 03:48:54', '2024-06-13 03:48:54'),
+(3, 'App\\Models\\User', 21, 'API_TOKEN_PERSONNAL_CHIEF', 'e93d14bbf66f1ad22fed5e04f47a41608c7293290b465f2e0fe6089b9e25fa2a', '[\"*\"]', '2024-06-13 03:52:28', NULL, '2024-06-13 03:50:59', '2024-06-13 03:52:28');
 
 -- --------------------------------------------------------
 
@@ -531,24 +639,19 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0c8RvuLWuR5whyi0YwiHSv6VaLtzeuOuJf7metba', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMUowNnFDSndLSzhtVkEzS0FOdEwxQnVnaGQxcElRTlVVRmh6ODB5aCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718187045),
-('2sw1GFOCNHtwYcQC20V8pEJ07TTIbWd4Ge79EIhb', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWDV3V2QzRnZ0a0ZYYWdjbzdCbG1qOE16T3dwVm1uR2Q4UDZUdmFHaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718097916),
-('4AuSgTWI3ZMGOpyH5b7CFsg8bYfnFQti7SVaJJhS', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ2YxeEZoZkVweXBLSGxLVlV6YTJPdXYweXV4Q1kxa0RiY1J2R2VpdyI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1718103477),
-('9t8RpGNCwS9oVPw9mrS8BEG99aTciwV8TzS1xlMh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTGpoMG9ySFNmUGVyQlpYbXNpUGFYYVBENlIzZ1dZM3U2SXJzSTdFTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718103879),
-('BX5hA3d0WE1KD6u1uWgziwfZAlBiVJJrsgbP3Hut', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRzBzU25OYXJYVDUyNEh0U3h0cVdFdURPeFg3NTQ0SWprSktlSkYyNCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718103477),
-('C5n5ABlbN6ilKfwZ2vwqTTObVDAhU9x6liAziPa6', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidzc2M0RqY0NUZXE5cnA1T3ZuTm5ZQnJIeUdobkNQanV2MW5lUHJiQiI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1718187044),
-('CkdTOqA6xfI6VjjValqW1FXOOAhVOMIP6aFfSgWZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNFV1cjhuaTZ6VUFqZExwTjhFU3hsNGo1cGlsV1RzdWZhc0xKam1RcyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718101614),
-('CrTzlCNwzLiDQIyKyM0ycVNl3NQrtYsQgWOXBnKZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidjN5aGZWU2lhVTR3UGN4T0g1elM0dHo5SVNWTm1ZaWR0UlhIQldyWCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718103878),
-('Dt6LWTbtciXT044rof3Sx0bzzaWwXXPuGdfgHEUU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibFMzQWZpS0VaSHNCcGZtNDdac0lKTm1sMDNuYmM1cDAxNW01QmFOYyI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1718097915),
-('FQAqUjC7AooHDRgdEHGYOetakguN1OYTQYLvYedl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTEFjanB5bnhwbW53RmhudzkyN0tOaHJFZDZvU0FRQU9xT3p3QnU5ZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718187045),
-('hwwI4SqPYQld2BQUl71qwUpREWL77YPx5NRT7gEd', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVUh0Ulg1a0JEcEZLcXVLRkFKcjI5M3RNb2VCckRJbGZ6aHN2MjUxUyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718097915),
-('Iz119BfyGXl0LzASGR3TSR3BnQedxQgvtptadJAH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUVhMVUF6NzUwdUpjdDhQcXY2OHFQZmR5d1o4aUhpcm0wUXh4RnJhUyI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1718101613),
-('jUh31rFvDaGrLYR7tW0nCIGyrUwB3ZlJHcktfjk1', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVHIwTnJDRElrZ1puOE1NUVc2SEx0NVdUblM2eDNNQmpUeTR2Z2RRcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718101614),
-('kIZHf0XW8ZiHwmDS4qIqpL5kiFk5FmwsX4uBGj4V', 21, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoicG5lb2h3M1RSTzdnNEhmNDQyZHBZN2FXMXpZOUhzRVJMaHY2NGtVeiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9tZWRlY2luIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjE7fQ==', 1718188069),
-('mZIPPlyRBBd79pILJHZYP6ubN7763yvetElqDs8f', 21, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRFVSMWpqNzhlbkZIWkF5THVoYnZGMGtOMWRoakliWE5tRnEydkpIbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wYXRpZW50Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjE7fQ==', 1718105351),
-('OPCKM0imttXrdes1yeZjkIQjuZ7QCwpuYP5ZS15r', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieWJwcE8ydGg4TWF2ME5JenJvUDlvbU9UYmY1QUpySDdGSGJjektNRyI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1718103878),
-('S3MsuunW9Ox93U0ttxbXSuGE6yTVGGAMi9tD9foL', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiellsYmpTekEyNm5ocmgxdmMxTVk5bExPQ1FwWnhxVU1mdVRBUm9wSyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718103478),
-('UPUVTdIe3jqj3b6qDwRDQWXc0FtgfdrWKcKu7rJK', 21, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidXJ5eTRhd0RoRVdoODY0ZGpSTng0UnlkZ2R5cmZXU0FxVnZpd1lkSCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9ycy9maWx0ZXI/c3BlY2lhbHR5PTUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMTt9', 1718136313);
+('3qt1WACxCgPUXc9OCfcBhvXtZNbZsm5cNGGayMWW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOEdHUHNRSG9xY0hxbUlKM2RuWFdFWUtlVkJmWnZ0a3pTd3lucEQ2RyI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1719302176),
+('CozcVtCkc6MUfIZrcuDCuwoXjbguJMM4qicCwnsF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTFkweTY5TDk0c1g3c3FEODN0bDVPRXFMTXlvMHVmMWVSenV3WHk3SiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719302177),
+('d2CN4TLl1k9AFxjBadsTASApVN5SgOauLGasuXok', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiakxtendDSjdCblNHcXZTcFVTQW1kQ2lkdlplRWtaek84b1lKTVBtQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719303560),
+('dPisxhN5pTsCTRFyJBMsLcGvcNzDR5tf4z0TVwYH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWVZieFJoT3VaQlV6TmpCT0xqVVhHWE1ERXZYekFEYU5ROWw0OGdVZSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1719302264),
+('HNJ89IM43eQ8TgUgioBOryH658uWAc7CHIEVhhK1', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWkNtcHhyUGZ0SmlqTFVidHVMdUNtM0tYeG9tZ1YwZG9PMHVVYjlWYiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1719302177),
+('idwzFrSxWAVRTVP6OckbuWq3W841SoqtssUsN4Kp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUFBUWmNDUHRxV3R0cmtHYzhjM2FTUmNhbmVSNnRnekxOVlBHbVhWNiI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1719303559),
+('ljyWeFOY44kRsYVFYVFGo45TwTlTsNvKW3wXvDIm', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoib21LVFdUWE15QVpQRVVYVHJSZkVOREp1NUxVdU1hUUU3Z1dwWlFxbCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719303483),
+('NyKrba7qX7RnELfp1vhlB8iREWthrM58qHzue4tU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQnFUeHNWcHh1cnVhNDFYb3NOZEE4T3hBSVBvVndFclpqSWV2bnA1SSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719302264),
+('OAYOHZncXAnLvQnW15JPlZPm2nsXTElmxI0IFLxy', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMjU4TEVONlVpb0Q0S3QyNlFDYkNaOVg5SDZTN3J5cFhyU3VkNFNuViI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1719302263),
+('rDqjDNkroZhTygnF3WGzqFzgmVg1Gde1CbO8PzjP', 21, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUWVab2FEbUtZdWVScjlyWkJsNEhCaTBWbVIzbU5WQWc0djVXYmlvbCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zZWNyZXRhcnkvY3JlYXRlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjE7fQ==', 1719304089),
+('XamjFRjW5opR5VGM5vncp2jZrIepsRZwADL1hArV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWDg2MmdFUGtQTG1OSTRRU3NnQ0dCbE5DMFo0dlZ0RGlma2MyQmwxciI7czo1OiJlcnJvciI7czoyMDoiRG9jdGV1ciBub24gdHJvdXbDqS4iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YToxOntpOjA7czo1OiJlcnJvciI7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL21lZGVjaW4vc2l0ZS53ZWJtYW5pZmVzdCI7fX0=', 1719303481),
+('xP3dR62EmmlFfIVqpLwUGglMTck8OxcoXZz1ylvs', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSU41bzRvclE4djdjNTZhUkFmVTZoTThmYzkwN1drTzNiWmN1cWJlayI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1719303559),
+('Z3rWiIEa0bPuJL5JkVrkwb5fi3YycdTMINriKbCo', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiS0U2REZWcWNyelBmSkMwUTNINDlHQUZiTUkyTWZCdTdZZWRCb3B5SCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvY3RvciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI4OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG9jdG9yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1719303482);
 
 -- --------------------------------------------------------
 
@@ -599,7 +702,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `lastname`, `language`, `phone_number`, `role_id`) VALUES
-(1, 'Freddie', 'lloyd.bergnaum@example.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'E5cLsWgi1z', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Batz', 'id', '(843) 542-0310', 4),
+(1, 'Freddie', 'lloyd.bergnaum@example.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'zo7YAALlqx3bYXuDny85y6PzTAQA5iwbmQPM6lO7wIalKRkMFi753ElPmwMO', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Batz', 'id', '(843) 542-0310', 4),
 (2, 'Keara', 'qmedhurst@example.net', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'QR5UZiwPud', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Raynor', 'su', '239-813-3917', 4),
 (3, 'Beau', 'alayna.maggio@example.org', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'VssDmII3dj', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Balistreri', 'bm', '+1 (831) 965-3168', 4),
 (4, 'Lindsay', 'vhoeger@example.org', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', '0rLe1Zq4LL', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Considine', 'is', '+1-254-995-6995', 4),
@@ -619,22 +722,22 @@ INSERT INTO `users` (`id`, `firstname`, `email`, `email_verified_at`, `password`
 (18, 'Jesus', 'zachariah97@example.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'PkxDAecraU', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Herman', 'ia', '240.661.8818', 4),
 (19, 'Mollie', 'littel.carissa@example.org', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'Ig5qEQfj4u', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Williamson', 'be', '+1.828.570.6759', 4),
 (20, 'Sylvia', 'oheathcote@example.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'E0lKqK77Vy', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Hand', 'ha', '1-231-675-3904', 4),
-(21, 'Roberta', 'chief@mail.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'pv06xsMmYlyb2ItxFvopR5SZyR1ATr5F4btjjMCkThxiZnIkoemRlzJxZfI1', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Hackett', 'ln', '425-470-7072', 1),
+(21, 'Roberta', 'chief@mail.com', '2024-06-11 06:39:56', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'ayFhvGRHyEecJscwlCiYJNLygyBwU6oFpjWMyiWQbb0Spu0H0Y4K3qsmbw9v', '2024-06-11 06:39:56', '2024-06-11 06:39:56', 'Hackett', 'ln', '425-470-7072', 1),
 (22, 'Kip', 'satterfield.mariano@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'qty5tA9MI7', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Schulist', 'uk', '1-812-234-7227', 3),
 (23, 'Jonathon', 'justus.bradtke@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'OGHRl249JZ', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Marvin', 'ka', '+1 (580) 642-9502', 3),
 (24, 'Wilson', 'julie15@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'sbGbLH8r6e', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Anderson', 'na', '1-336-870-9094', 3),
 (25, 'Eldora', 'maltenwerth@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'NYUe162Qxd', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Ortiz', 'kk', '1-229-960-4520', 3),
 (26, 'Shanon', 'jjette@hotmail.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'bW9dOVqRJZszOJ0Sm06d15Vob05w8sNzoiKclbnEJOjKLraNwIVcIlibJ1jo', '2024-06-11 06:39:57', '2024-06-11 06:56:30', 'Gleason', 'sa', '987-654', 3),
-(27, 'Ericka', 'andreanne.oberbrunner@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'wSY2uSNNzwGtqUrhWW83LmXlFjY0bEjpcKgOqDZAO5QY4wglpWPhdkvpKMxv', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Dickens', 'hr', '+14253522749', 2),
+(27, 'Ericka', 'andreanne.oberbrunner@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'wSY2uSNNzwGtqUrhWW83LmXlFjY0bEjpcKgOqDZAO5QY4wglpWPhdkvpKMxv', '2024-06-11 06:39:57', '2024-06-22 19:19:37', 'Dickens', 'hr', '+326589', 2),
 (28, 'Nadia', 'giovani.crooks@example.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', '79P0Gc6VdHz2gmheSwO2LmN0U7rErTfPxrhc1m0WzWDg8ntfiFOKsgh1yrev', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Auer', 'nn', '+1-520-468-0576', 2),
-(29, 'Mathilde', 'gleason.isobel@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', '6BHLSAGQXx', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Sauer', 'sa', '757-686-2679', 2),
+(29, 'Mathilde', 'gleason.isobel@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'Aq6tkZjKGNc5UO764b5jiUbminmqQOOvjmvm87ksz2NlOFNOjujrJaLQBmWC', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Sauer', 'sa', '757-686-2679', 2),
 (30, 'Sim', 'kkuhn@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'N6Yhq33sMu', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Anderson', 'mi', '+19598604199', 2),
 (31, 'Arvilla', 'rogelio48@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', '7kCYrDvQWb', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Langworth', 'ko', '458.740.0804', 2),
-(32, 'Ana', 'alejandrin.oconner@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'SHnBC6IbDh', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Hermann', 'tr', '407.567.2999', 2),
+(32, 'Ana', 'alejandrin.oconner@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'SHnBC6IbDh', '2024-06-11 06:39:57', '2024-06-24 17:55:32', 'Hermann', 'tr', '8956', 2),
 (33, 'Rubie', 'walker.rosemarie@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'k14bjn3OTd', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Pagac', 've', '+1-847-584-7992', 4),
 (34, 'Lessie', 'eunice27@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', '9X5Hjinbk1', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Kuvalis', 'da', '539.316.6227', 4),
 (35, 'Augustus', 'elenor.konopelski@example.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'ZrA333WkhB', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Conn', 'tk', '518.873.7511', 4),
-(36, 'Albina', 'ashlee07@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'QBA97DVPGNsXYBKmv3NAKsj3AxOWCJ84flqCqjyyTJt0768AxhCDUb7pDC34', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Rippin', 'lg', '743.755.2556', 4),
+(36, 'Albina', 'ashlee07@example.org', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'eCMjN67VtgUiiTxcx4X8GIRudKhVGdyo31hNNhm5ELcV9f73qqRDM1uS63xf', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Rippin', 'lg', '743.755.2556', 4),
 (37, 'Lexus', 'renee.simonis@example.net', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'mlXC1QsN6t', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Lakin', 'kr', '843-695-9781', 4),
 (38, 'Kavon', 'rempel.claudie@example.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'eGzzfP8Tk6', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Ebert', 'dv', '(858) 512-1984', 4),
 (39, 'Lowell', 'dalton82@example.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'BFSmsprApD', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Johnson', 'en', '564-456-2551', 4),
@@ -648,7 +751,11 @@ INSERT INTO `users` (`id`, `firstname`, `email`, `email_verified_at`, `password`
 (47, 'Larry', 'ben.konopelski@example.com', '2024-06-11 06:39:57', '$2y$12$FgpgQiyHDUAnsG3RIfBYl.8oueKc4zMGVNgORFKp/F.vkP6fH1c32', 'vFrewpXSCp', '2024-06-11 06:39:57', '2024-06-11 06:39:57', 'Metz', 'ha', '239-343-0126', 4),
 (48, 'Maxime', 'maxime@gmail.com', NULL, '$2y$12$8/nq499tolrUNqSTA0BoC.6r.0zgGWKEC4utxJU0s8qTb2J8trp8S', NULL, '2024-06-11 06:41:58', '2024-06-11 06:50:58', 'Santos', 'fr', '222111', 4),
 (49, 'Nataly', 'nataly@gmail.ru', NULL, '$2y$12$BIQkCB6K479yljeIfe8i8.esB2lDuhKjIfzlNtaScv1FADVvZufha', NULL, '2024-06-11 06:57:06', '2024-06-11 06:57:06', 'Fisher', 'FR', '555333', 3),
-(50, 'Ludovic', 'ludovic@gmail.com', NULL, '$2y$12$eWb7277/W61OaV3Ow6Wjy.xCQwuXIgiLCguyQWze9IxYSZtYqR/Su', NULL, '2024-06-11 08:44:16', '2024-06-11 08:44:16', 'Smit', 'FR', '555666', 4);
+(50, 'Ludovic', 'ludovic@gmail.com', NULL, '$2y$12$eWb7277/W61OaV3Ow6Wjy.xCQwuXIgiLCguyQWze9IxYSZtYqR/Su', NULL, '2024-06-11 08:44:16', '2024-06-11 08:44:16', 'Smit', 'FR', '555666', 4),
+(51, 'Fred', 'fred@gmail.com', NULL, '$2y$12$OwecXYQFBFCI4G/LNJbwI.BuCyULgELWBQ4pveNy1M35Jkrdi8QfK', NULL, '2024-06-17 08:15:31', '2024-06-17 08:15:31', 'Veter', 'fr', NULL, 4),
+(52, 'Roxane', 'rox@gmail.com', NULL, '$2y$12$tQpOSE2ltQ5N//9sWwEnMul571tlnlnrYT8ZTzJSrBRtNQBoxLmdS', NULL, '2024-06-22 19:15:58', '2024-06-22 19:15:58', 'Canchi', 'fr', NULL, 4),
+(53, 'Bob', 'bob@sull.com', NULL, '$2y$12$gFqpYxNDv.rAXispNNHI5OkpKc1/Ahlptx7IbVIzLpO4PaqQ20DWW', NULL, '2024-06-24 16:27:08', '2024-06-24 16:27:08', 'Sull', 'fr', '5689', 4),
+(54, 'Killian', 'killian@gmail.com', NULL, '$2y$12$H.sBHk15hBkDgRz/2KamVeamq6OEDXMgHxokZox3y8ubW/.TsCQUy', NULL, '2024-06-24 16:29:44', '2024-06-24 16:29:44', 'Merlin', 'fr', NULL, 4);
 
 --
 -- Index pour les tables déchargées
@@ -809,13 +916,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT pour la table `availabilities`
 --
 ALTER TABLE `availabilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT pour la table `comments`
@@ -863,19 +970,19 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT pour la table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -899,7 +1006,7 @@ ALTER TABLE `specialties`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Contraintes pour les tables déchargées
